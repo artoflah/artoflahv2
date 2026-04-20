@@ -17,10 +17,10 @@
       track.textContent = 'nothing playing right now';
       return;
     }
-    const prefix = data.isPlaying ? 'now: ' : 'last played: ';
+    const prefix = data.playing ? 'now: ' : 'last played: ';
     track.innerHTML = `${prefix}<span class="np-title">${escapeHtml(data.title)}</span> — ${escapeHtml(data.artist || '')}`;
-    if (data.trackUrl) {
-      track.innerHTML += ` <a href="${data.trackUrl}" target="_blank" rel="noopener">↗</a>`;
+    if (data.url) {
+      track.innerHTML += ` <a href="${data.url}" target="_blank" rel="noopener">↗</a>`;
     }
   };
 
