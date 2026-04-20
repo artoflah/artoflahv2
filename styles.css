@@ -237,7 +237,7 @@ ul, ol { list-style: none; }
 .stage {
   position: relative;
   width: 100%;
-  min-height: 600px;
+  min-height: 700px;
   margin-top: 16px;
 }
 
@@ -274,9 +274,11 @@ ul, ol { list-style: none; }
   touch-action: none;
   transition: filter 0.2s, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
   z-index: 2;
-  max-width: 200px;
   height: auto;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+.satellite:not([style*="max-width"]) {
+  max-width: 200px;
 }
 
 .satellite.is-dragging {
