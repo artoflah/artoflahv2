@@ -395,11 +395,15 @@ ul, ol { list-style: none; }
    ========================================================= */
 
 @media (max-width: 767px) {
+  html, body { overflow-x: hidden; }
+
   .layout {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     gap: 24px;
     padding: 24px;
+    max-width: 100%;
+    overflow-x: hidden;
   }
   .layout > .logo    { grid-column: 1; grid-row: 1; }
   .layout > .sidebar { grid-column: 1; grid-row: 2; }
@@ -407,7 +411,9 @@ ul, ol { list-style: none; }
   .sidebar {
     position: static;
     max-height: none;
-    overflow: visible;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
     border-radius: 0;
   }
   .project-nav {
@@ -425,7 +431,8 @@ ul, ol { list-style: none; }
   .projects { gap: 0; padding-bottom: 120px; }
   .project + .project { margin-top: 96px; }
 
-  .project-title { font-size: clamp(36px, 10vw, 52px); }
+  .project-title { font-size: clamp(28px, 9vw, 48px); overflow-wrap: break-word; word-break: break-word; }
+  .project-meta { font-size: clamp(16px, 4vw, 22px); }
 
   /* on mobile: hero full-width, satellites in a horizontal scroll carousel below */
   .stage {
@@ -463,4 +470,9 @@ ul, ol { list-style: none; }
     scroll-snap-align: start;
     max-width: 180px;
   }
+
+  /* project 01 has satellites directly in .stage (no carousel wrapper) —
+     hide them on mobile since they're absolutely positioned and won't reflow */
+  .stage > .satellite,
+  .stage > .satellite-motion { display: none; }
 }
