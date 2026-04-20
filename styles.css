@@ -19,8 +19,8 @@
   --accent-soft: #ffd6e4;
   --border: rgba(0, 0, 0, 0.08);
 
-  --font-display: 'Display', 'Instrument Serif', 'Times New Roman', serif;
-  --font-body: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Display', 'Times New Roman', serif;
+  --font-body: 'Display', 'Instrument Sans', system-ui, -apple-system, sans-serif;
 
   --sidebar-w: 280px;
   --gutter: 64px;
