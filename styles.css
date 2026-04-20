@@ -166,7 +166,7 @@ ul, ol { list-style: none; }
   min-height: 600px;
 }
 
-.project-head { margin-bottom: 48px; max-width: 680px; }
+.project-head { margin-bottom: 48px; }
 
 .project-index {
   font-family: var(--font-body);
