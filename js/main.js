@@ -42,4 +42,25 @@
   );
 
   projects.forEach((p) => observer.observe(p));
+
+  // hero modal — double-click to open, click overlay or Escape to close
+  const overlay = document.getElementById('modal-overlay');
+  const modalImg = document.getElementById('modal-img');
+
+  document.querySelectorAll('.hero img').forEach((img) => {
+    img.addEventListener('dblclick', () => {
+      modalImg.src = img.src;
+      modalImg.alt = img.alt;
+      overlay.removeAttribute('hidden');
+      requestAnimationFrame(() => overlay.classList.add('is-open'));
+    });
+  });
+
+  const closeModal = () => {
+    overlay.classList.remove('is-open');
+    overlay.addEventListener('transitionend', () => overlay.setAttribute('hidden', ''), { once: true });
+  };
+
+  overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 })();

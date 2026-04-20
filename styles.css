@@ -165,9 +165,10 @@ ul, ol { list-style: none; }
 .projects {
   display: flex;
   flex-direction: column;
-  gap: 160px;
+  gap: 0;
   padding-bottom: 240px;
 }
+.project + .project { margin-top: 160px; }
 
 .project {
   position: relative;
@@ -326,6 +327,35 @@ ul, ol { list-style: none; }
 }
 
 /* =========================================================
+   HERO MODAL
+   ========================================================= */
+
+#modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 250, 247, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+#modal-overlay[hidden] { display: none; }
+#modal-overlay.is-open {
+  display: flex;
+  opacity: 1;
+}
+#modal-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================================================
    CUSTOM CURSOR
    ========================================================= */
 
@@ -391,7 +421,8 @@ ul, ol { list-style: none; }
   .project-nav::-webkit-scrollbar { display: none; }
   .project-nav { scrollbar-width: none; }
   .project-nav a { flex-shrink: 0; scroll-snap-align: start; white-space: nowrap; }
-  .projects { gap: 96px; padding-bottom: 120px; }
+  .projects { gap: 0; padding-bottom: 120px; }
+  .project + .project { margin-top: 96px; }
 
   .project-title { font-size: clamp(36px, 10vw, 52px); }
 
