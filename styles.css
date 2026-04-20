@@ -3,6 +3,14 @@
    design tokens + base layout + project module
    ========================================================= */
 
+@font-face {
+  font-family: 'Display';
+  src: url('assets/fonts/display.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg: #fafaf7;
   --fg: #0a0a0a;
@@ -11,7 +19,7 @@
   --accent-soft: #ffd6e4;
   --border: rgba(0, 0, 0, 0.08);
 
-  --font-display: 'Instrument Serif', 'Times New Roman', serif;
+  --font-display: 'Display', 'Instrument Serif', 'Times New Roman', serif;
   --font-body: 'Instrument Sans', system-ui, -apple-system, sans-serif;
 
   --sidebar-w: 280px;
