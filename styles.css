@@ -224,10 +224,12 @@ ul, ol { list-style: none; }
 }
 
 .project-description {
-  max-width: 560px;
+  font-family: var(--font-body);
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.4;
+  color: var(--fg);
   margin-top: 48px;
-  font-size: 15px;
-  line-height: 1.65;
+  max-width: 960px;
 }
 
 /* =========================================================
