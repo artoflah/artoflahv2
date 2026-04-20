@@ -249,8 +249,9 @@ ul, ol { list-style: none; }
   z-index: 10;
   width: min(1060px, 90%);
   margin: 40px auto;
+  pointer-events: none;
 }
-.hero img { width: 100%; height: auto; display: block; }
+.hero img { width: 100%; height: auto; display: block; pointer-events: auto; }
 
 /* on desktop, the carousel wrapper is an invisible positioned layer that
    fills the stage so satellites still use --x/--y relative to the stage */

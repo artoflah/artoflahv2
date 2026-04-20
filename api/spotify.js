@@ -30,12 +30,8 @@ async function getNowPlaying(accessToken) {
   const res = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
-  console.log('spotify status:', res.status);
-  if (res.status === 204) { console.log('204 — no active playback'); return null; }
-  if (res.status > 400) { console.log('error status'); return null; }
-  const data = await res.json();
-  console.log('spotify data:', JSON.stringify(data).slice(0, 300));
-  return data;
+  if (res.status === 204 || res.status > 400) return null;
+  return res.json();
 }
 
 module.exports = async function handler(req, res) {
@@ -44,7 +40,7 @@ module.exports = async function handler(req, res) {
     const data = await getNowPlaying(accessToken);
 
     if (!data || !data.item) {
-      return res.status(200).json({ playing: false, _debug: { hasData: !!data, isPlaying: data?.is_playing, itemType: data?.currently_playing_type } });
+      return res.status(200).json({ playing: false });
     }
 
     return res.status(200).json({
