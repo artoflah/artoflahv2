@@ -28,7 +28,7 @@ display + body pairing, both loaded via @fontsource on jsdelivr.
 
 **Instrument Serif** — project names, site name, large display moments. use italic for the main hero "artoflah" treatment (feels like a signature).
 
-**Instrument Sans** — body text, metadata labels (what / when / for who / how / feels like), navigation.
+**Instrument Sans** — body text, metadata labels (what / when / for who / how), navigation.
 
 load in `index.html` head:
 ```html
@@ -149,7 +149,7 @@ portfolio/
 │   logo         │    ┌─────────────────────────────┐      │
 │   bio          │    │  project 01                 │      │
 │   skills       │    │  (what / when / for who /   │      │
-│   programs     │    │   how / feels like)         │      │
+│   programs     │    │   how)                      │      │
 │                │    │                             │      │
 │   project list │    │      [HERO VISUAL]          │      │
 │   (toc)        │    │   satellite  satellite      │      │
@@ -231,7 +231,6 @@ all six projects. use this exact copy and metadata.
 - **(when)** 2025
 - **(for who)** my boyfriend
 - **(how)** book design, cyanotype, riso print, coptic binding, motion graphic
-- **(feels like)** crushing
 
 **description:**
 > "forever yours, ladybug" is a multimedia project using cyanotype printing on fabric and glass and hand stippling, exploring what i call "the fear of being loved" — that specific terror of being seen completely and chosen anyway. this project is a devotional archive for my boyfriend, collecting small moments and materials that prove love exists even when it feels impossible to believe. it's about making the invisible weight of affection into something you can hold in your hands.
@@ -246,7 +245,6 @@ all six projects. use this exact copy and metadata.
 - **(when)** 2024
 - **(for who)** my mom
 - **(how)** book design, riso print, vellum paper
-- **(feels like)** tender
 
 **description:**
 > "come home" is a riso-printed publication exploring how home isn't always a place — sometimes it's a person. through letters my mom wrote during my freshman year and text messages spanning our relationship, this book examines the idea of finding home in someone who makes you feel safe and loved no matter where you are. printed in warm pink and orange tones on vellum paper, the design blurs the line between her voice and mine through scanned handwriting, intentional typography, and a scrapbook-like layout that feels both nostalgic and deeply personal.
@@ -260,7 +258,6 @@ all six projects. use this exact copy and metadata.
 - **(when)** 2025
 - **(for who)** nyc / the invisible
 - **(how)** photography, essay, book design, web, three.js
-- **(feels like)** defiant
 
 **description:**
 > "scratched into being" documents the desperate small marks left by people trying to prove they exist in a city designed to make them disappear. these aren't acts of vandalism but tiny rebellions — proof that someone was here, someone mattered, when everything else made them feel like ghosts. the project evolved into a physical book with an acrylic cover, mixed vellum paper types and hand-sewn binding, and an interactive website with drawing functionality over archived images. written essays on the theme of not wanting to be forgotten are embedded inside the site itself.
@@ -275,7 +272,6 @@ all six projects. use this exact copy and metadata.
 - **(when)** 2024
 - **(for who)** parsons core 3 studio — downtown manhattan neighborhood
 - **(how)** ux / ui, web app, html/css/js, civic design
-- **(feels like)** necessary
 
 **description:**
 > watchtower is a community utility-tracking app designed for a downtown manhattan neighborhood experiencing frequent power and water outages. designed around three specific neighbors (a freelance mom, an elderly building super, a punk rocker renovating his apartment), the app features a color-coded real-time map, multi-channel reporting (app / text / call-in), multiple languages with picture-based icons, and a community resource sharing layer. accessibility-first, works on dying phones and offline.
@@ -290,7 +286,6 @@ all six projects. use this exact copy and metadata.
 - **(when)** 2024
 - **(for who)** self
 - **(how)** interactive web, generative imagery, html/css/js
-- **(feels like)** introspective
 
 **description:**
 > "for what it's worth" is an interactive web experience that explores the courage it takes to step outside our safety nets when outcomes aren't guaranteed. users answer a series of value-based questions, and the site generates imagery in response to their answers using ai. the project examines those crossroads where we choose potential meaning over comfortable insignificance, recognizing that sometimes value isn't measured in guaranteed outcomes but in our willingness to risk something precious.
@@ -306,7 +301,6 @@ all six projects. use this exact copy and metadata.
 - **(when)** 2025
 - **(for who)** speculative collaboration — new museum, nyc
 - **(how)** branding, merch design, exhibition design, exterior mural concept
-- **(feels like)** loud
 
 **description placeholder (mimi to write):**
 > a speculative brand world imagining a collaboration between slawn and the new museum, extending his painterly vocabulary into wearables, signage, and a building-facade mural concept. explores what it looks like when a street-rooted visual language takes over an institutional space on its own terms.
