@@ -231,7 +231,7 @@ ul, ol { list-style: none; }
 }
 
 .satellite.is-dragging {
-  transition: none;
+  transition: none !important;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
   z-index: 99;
 }

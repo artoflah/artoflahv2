@@ -54,8 +54,10 @@
       el.setPointerCapture(e.pointerId);
       isDragging = true;
 
-      // scale up slightly, apply pickup rotation
-      el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1.04)`;
+      // defer scale-up to next frame so the left/top switch settles first
+      requestAnimationFrame(() => {
+        el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1.04)`;
+      });
     };
 
     const onPointerMove = (e) => {
@@ -82,14 +84,14 @@
       if (!isDragging) return;
       isDragging = false;
 
-      // commit position: bake offset into left/top, reset transform, settle
+      // bake the final drag position into left/top and zero the translate in the
+      // same frame — this prevents the one-frame snap-back to origin.
       el.style.left = currentX + 'px';
       el.style.top = currentY + 'px';
+      el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1)`;
+
       el.classList.remove('is-dragging');
       el.classList.add('is-lifted');
-
-      // settle: keep pickup rotation (feels like it stays where you placed it)
-      el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1)`;
 
       setTimeout(() => el.classList.remove('is-lifted'), 300);
 
