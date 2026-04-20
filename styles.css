@@ -251,7 +251,7 @@ ul, ol { list-style: none; }
   margin: 40px auto;
   pointer-events: none;
 }
-.hero img { width: 100%; height: auto; display: block; pointer-events: auto; }
+.hero img { width: 100%; height: auto; display: block; }
 
 /* on desktop, the carousel wrapper is an invisible positioned layer that
    fills the stage so satellites still use --x/--y relative to the stage */

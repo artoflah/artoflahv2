@@ -47,12 +47,18 @@
   const overlay = document.getElementById('modal-overlay');
   const modalImg = document.getElementById('modal-img');
 
-  document.querySelectorAll('.hero img').forEach((img) => {
-    img.addEventListener('dblclick', () => {
-      modalImg.src = img.src;
-      modalImg.alt = img.alt;
-      overlay.removeAttribute('hidden');
-      requestAnimationFrame(() => overlay.classList.add('is-open'));
+  // hero has pointer-events:none so satellites beneath are draggable.
+  // detect dblclick by checking if coordinates fall within any hero img.
+  document.addEventListener('dblclick', (e) => {
+    document.querySelectorAll('.hero img').forEach((img) => {
+      const r = img.getBoundingClientRect();
+      if (e.clientX >= r.left && e.clientX <= r.right &&
+          e.clientY >= r.top  && e.clientY <= r.bottom) {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+        overlay.removeAttribute('hidden');
+        requestAnimationFrame(() => overlay.classList.add('is-open'));
+      }
     });
   });
 
