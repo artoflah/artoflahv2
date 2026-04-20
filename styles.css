@@ -326,12 +326,17 @@ ul, ol { list-style: none; }
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
-  background-image: url('assets/cursors/ladybug.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   transition: width 0.15s, height 0.15s;
 }
+/* default state: show the ladybug <img> (SVG with embedded PNG — needs img tag, not bg-image) */
+#cursor-ladybug { display: block; width: 100%; height: 100%; }
+#cursor.state-grab #cursor-ladybug,
+#cursor.state-grabbing #cursor-ladybug,
+#cursor.state-play #cursor-ladybug { display: none; }
+/* state cursors are clean vectors — background-image works fine */
 #cursor.state-grab { background-image: url('assets/cursors/grab.svg'); width: 32px; height: 32px; }
 #cursor.state-grabbing { background-image: url('assets/cursors/grab-active.svg'); width: 32px; height: 32px; }
 #cursor.state-play { background-image: url('assets/cursors/play.svg'); width: 36px; height: 36px; }
