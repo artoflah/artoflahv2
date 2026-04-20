@@ -84,16 +84,26 @@
       if (!isDragging) return;
       isDragging = false;
 
-      // bake the final drag position into left/top and zero the translate in the
-      // same frame — this prevents the one-frame snap-back to origin.
+      el.classList.remove('is-dragging');
+
+      // Frame 1: force-suppress all transitions, commit left/top, zero the
+      // translate but keep scale at 1.04 so there's nothing to animate yet.
+      // This is the frame that was causing the jump — left snapped but the
+      // browser tried to animate the translate back through the is-lifted
+      // transition, making the element fly forward before settling.
+      el.style.transition = 'none';
       el.style.left = currentX + 'px';
       el.style.top = currentY + 'px';
-      el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1)`;
+      el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1.04)`;
 
-      el.classList.remove('is-dragging');
-      el.classList.add('is-lifted');
-
-      setTimeout(() => el.classList.remove('is-lifted'), 300);
+      // Frame 2: position is already committed with no animation. Now restore
+      // the cascade and let only the scale drop animate cleanly.
+      requestAnimationFrame(() => {
+        el.style.transition = '';
+        el.classList.add('is-lifted');
+        el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1)`;
+        setTimeout(() => el.classList.remove('is-lifted'), 300);
+      });
 
       try { el.releasePointerCapture(e.pointerId); } catch (_) {}
     };
