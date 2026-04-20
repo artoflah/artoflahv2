@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
     const data = await getNowPlaying(accessToken);
 
     if (!data || !data.item) {
-      return res.status(200).json({ playing: false });
+      return res.status(200).json({ playing: false, _debug: { hasData: !!data, isPlaying: data?.is_playing, itemType: data?.currently_playing_type } });
     }
 
     return res.status(200).json({
