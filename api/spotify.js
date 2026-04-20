@@ -22,6 +22,7 @@ async function getAccessToken() {
     }),
   });
   const data = await res.json();
+  if (!data.access_token) throw new Error(`token exchange failed: ${JSON.stringify(data)}`);
   return data.access_token;
 }
 
@@ -29,8 +30,12 @@ async function getNowPlaying(accessToken) {
   const res = await fetch('https://api.spotify.com/v1/me/player/currently-playing', {
     headers: { Authorization: `Bearer ${accessToken}` },
   });
-  if (res.status === 204 || res.status > 400) return null;
-  return res.json();
+  console.log('spotify status:', res.status);
+  if (res.status === 204) { console.log('204 — no active playback'); return null; }
+  if (res.status > 400) { console.log('error status'); return null; }
+  const data = await res.json();
+  console.log('spotify data:', JSON.stringify(data).slice(0, 300));
+  return data;
 }
 
 module.exports = async function handler(req, res) {
