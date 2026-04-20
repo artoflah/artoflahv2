@@ -243,7 +243,7 @@ ul, ol { list-style: none; }
 
 .hero {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   width: min(560px, 70%);
   margin: 40px auto;
 }
