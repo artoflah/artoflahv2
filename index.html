@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mi'lah clark / artoflah</title>
+  <meta name="description" content="portfolio of mi'lah clark, communication design student at parsons school of design.">
+
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/instrument-serif/400.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/instrument-sans/400.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/instrument-sans/500.css">
+
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-ladybug.svg">
+</head>
+<body>
+
+  <!-- custom cursor (follows mouse via cursor.js) -->
+  <div id="cursor" aria-hidden="true"></div>
+
+  <div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <a href="#top" class="logo" aria-label="home">
+        <img src="assets/logo-ladybug.svg" alt="" width="48" height="48">
+      </a>
+
+      <section class="bio">
+        <p>
+          mi'lah (mee-lah) or artoflah is a multidisciplinary graphic
+          designer based in new jersey & new york. she is currently
+          studying communication design at parsons school of design
+          (the new school) with a minor in fine arts. her work explores
+          themes of love, value, existence, and identity through book
+          design, print, web design, ux/ui, and object creation.
+        </p>
+        <p class="bio-caps">currently (desperately) looking for an internship.</p>
+      </section>
+
+      <section class="meta-block">
+        <h3 class="meta-label">skills</h3>
+        <ul class="meta-list">
+          <li>graphic design</li>
+          <li>art direction</li>
+          <li>editorial design</li>
+          <li>social design</li>
+          <li>creative strategy</li>
+          <li>brand collaborations</li>
+          <li>writing & research</li>
+          <li>copywriting, here and there</li>
+          <li>illustration, if you make me</li>
+        </ul>
+      </section>
+
+      <section class="meta-block">
+        <h3 class="meta-label">programs</h3>
+        <ul class="meta-list">
+          <li>adobe (id, ps, ai, ae)</li>
+          <li>canva</li>
+          <li>figma</li>
+          <li>procreate</li>
+          <li>blender</li>
+          <li>microsoft apps</li>
+        </ul>
+      </section>
+
+      <!-- project table of contents -->
+      <nav class="toc" aria-label="projects">
+        <h3 class="meta-label">index</h3>
+        <ol>
+          <li><a href="#forever-yours">01 / forever yours, ladybug</a></li>
+          <li><a href="#come-home">02 / come home</a></li>
+          <li><a href="#scratched">03 / scratched into being</a></li>
+          <li><a href="#watchtower">04 / watchtower</a></li>
+          <li><a href="#for-what-its-worth">05 / for what it's worth</a></li>
+          <li><a href="#slawn-new-museum">06 / slawn × new museum</a></li>
+        </ol>
+      </nav>
+
+      <section class="contact">
+        <h3 class="meta-label">reach me</h3>
+        <p><a href="mailto:missingf0nt@gmail.com">missingf0nt@gmail.com</a></p>
+        <p><a href="https://www.instagram.com/artoflah/" target="_blank" rel="noopener">instagram ↗</a></p>
+        <p><a href="https://www.linkedin.com/in/mi-lah-clark/" target="_blank" rel="noopener">linkedin ↗</a></p>
+        <p><a href="#" target="_blank" rel="noopener">resume ↗</a></p>
+      </section>
+
+      <!-- spotify now playing (populated by js/spotify.js) -->
+      <section class="now-playing" id="now-playing" aria-live="polite">
+        <h3 class="meta-label">currently listening</h3>
+        <p class="np-track">loading…</p>
+      </section>
+
+    </aside>
+
+    <!-- PROJECTS -->
+    <main class="projects" id="top">
+
+      <!-- PROJECT 01 — forever yours, ladybug -->
+      <article class="project" id="forever-yours" data-project="01">
+
+        <header class="project-head">
+          <p class="project-index">01</p>
+          <h2 class="project-title">forever yours, ladybug</h2>
+          <dl class="project-meta">
+            <div><dt>(what)</dt><dd>forever yours, ladybug</dd></div>
+            <div><dt>(when)</dt><dd>2025</dd></div>
+            <div><dt>(for who)</dt><dd>my boyfriend</dd></div>
+            <div><dt>(how)</dt><dd>book design, cyanotype, riso print, coptic binding, motion graphic</dd></div>
+            <div><dt>(feels like)</dt><dd>crushing</dd></div>
+          </dl>
+        </header>
+
+        <!-- hero + satellites stage -->
+        <div class="stage">
+
+          <!-- hero gif of the book flipthrough -->
+          <div class="hero gif-hero">
+            <img src="https://placehold.co/600x420/e8edf2/0a0a0a?text=book+flipthrough" alt="forever yours, ladybug — book flipthrough">
+          </div>
+
+          <!-- satellites — draggable on desktop, carousel on mobile -->
+          <div class="satellite-carousel">
+
+            <!-- motion graphic — hover to play -->
+            <div class="satellite satellite-motion" style="--x: 6%; --y: 6%; --r: -4deg;"
+                 aria-label="motion graphic — hover to play">
+              <img class="motion-still"
+                   src="https://placehold.co/210x148/0a0a0a/fafaf7?text=motion+graphic"
+                   alt="motion graphic still frame">
+              <img class="motion-playing"
+                   src="https://placehold.co/210x148/ff6fa3/fafaf7?text=♥+playing"
+                   alt="" aria-hidden="true">
+              <span class="satellite-play-hint" aria-hidden="true">▶ play</span>
+            </div>
+
+            <!-- cyanotype prints -->
+            <img class="satellite" style="--x: 72%; --y: 2%; --r: -9deg;"
+                 src="https://placehold.co/168x210/b0c8d8/0a0a0a?text=cyanotype+I"
+                 alt="cyanotype print on fabric">
+            <img class="satellite" style="--x: 80%; --y: 52%; --r: 5deg;"
+                 src="https://placehold.co/152x190/9ab8cc/0a0a0a?text=cyanotype+II"
+                 alt="cyanotype print on glass">
+
+            <!-- doily -->
+            <img class="satellite" style="--x: 3%; --y: 48%; --r: -3deg;"
+                 src="https://placehold.co/170x170/f5f0eb/c8b8a8?text=doily"
+                 alt="lace doily">
+
+            <!-- polaroids -->
+            <img class="satellite" style="--x: 60%; --y: 72%; --r: 7deg;"
+                 src="https://placehold.co/130x162/fafaf7/0a0a0a?text=polaroid"
+                 alt="polaroid of my boyfriend">
+            <img class="satellite" style="--x: 20%; --y: 74%; --r: -6deg;"
+                 src="https://placehold.co/130x162/fafaf7/0a0a0a?text=polaroid"
+                 alt="polaroid of my boyfriend">
+
+          </div><!-- /.satellite-carousel -->
+
+        </div><!-- /.stage -->
+
+        <p class="project-description">
+          "forever yours, ladybug" is a multimedia project using cyanotype printing
+          on fabric and glass and hand stippling, exploring what i call "the fear of
+          being loved" — that specific terror of being seen completely and chosen
+          anyway. this project is a devotional archive for my boyfriend, collecting
+          small moments and materials that prove love exists even when it feels
+          impossible to believe. it's about making the invisible weight of affection
+          into something you can hold in your hands.
+        </p>
+
+      </article>
+
+      <!-- additional projects follow this same pattern. see SPEC.md phase 5. -->
+
+    </main>
+
+  </div>
+
+  <!-- scripts -->
+  <script src="js/drag.js" defer></script>
+  <script src="js/cursor.js" defer></script>
+  <script src="js/spotify.js" defer></script>
+  <script src="js/main.js" defer></script>
+
+</body>
+</html>

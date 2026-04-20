@@ -1,0 +1,10 @@
+{
+  "name": "artoflah-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "description": "portfolio site for mi'lah clark / artoflah",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  }
+}
