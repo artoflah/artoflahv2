@@ -4,8 +4,8 @@
    ========================================================= */
 
 (() => {
-  // smooth scroll on toc links
-  document.querySelectorAll('.toc a[href^="#"]').forEach((link) => {
+  // smooth scroll on all internal nav links
+  document.querySelectorAll('.toc a[href^="#"], .project-nav a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
       const id = link.getAttribute('href');
       const target = document.querySelector(id);
@@ -16,15 +16,20 @@
     });
   });
 
-  // active project indicator in the toc
+  // active project indicator — synced across sidebar toc and project-nav
   const projects = document.querySelectorAll('.project');
   const tocLinks = document.querySelectorAll('.toc li');
+  const projectNavLinks = document.querySelectorAll('.project-nav a[href^="#"]');
 
   const setActive = (id) => {
     tocLinks.forEach((li) => {
       const a = li.querySelector('a');
       if (a && a.getAttribute('href') === `#${id}`) li.classList.add('active');
       else li.classList.remove('active');
+    });
+    projectNavLinks.forEach((a) => {
+      if (a.getAttribute('href') === `#${id}`) a.classList.add('active');
+      else a.classList.remove('active');
     });
   };
 
