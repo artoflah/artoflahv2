@@ -242,8 +242,7 @@ ul, ol { list-style: none; }
 
 .stage {
   position: relative;
-  width: calc(100% + 48px);
-  margin-right: -48px;
+  width: 1259px;
   min-height: 700px;
   margin-top: 16px;
 }
