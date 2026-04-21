@@ -65,10 +65,10 @@
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
 
-      // clamp within container bounds
+      // clamp: left = stage left edge, right = viewport right edge, top/bottom = stage
       const containerRect = container.getBoundingClientRect();
       const elRect = el.getBoundingClientRect();
-      const maxX = containerRect.width - elRect.width;
+      const maxX = window.innerWidth - containerRect.left - elRect.width;
       const maxY = containerRect.height - elRect.height;
 
       currentX = Math.max(0, Math.min(maxX, elStartX + dx));
