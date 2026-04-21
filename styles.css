@@ -242,10 +242,9 @@ ul, ol { list-style: none; }
 
 .stage {
   position: relative;
-  width: calc(100% + var(--sidebar-w) + var(--gutter) + 96px);
-  margin-left: calc(-1 * (var(--sidebar-w) + var(--gutter) + 48px));
+  width: calc(100% + 48px);
   margin-right: -48px;
-  min-height: 100vh;
+  min-height: 700px;
   margin-top: 16px;
 }
 
