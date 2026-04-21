@@ -173,9 +173,12 @@ ul, ol { list-style: none; }
 .project {
   position: relative;
   min-height: 600px;
+  display: flex;
+  flex-direction: column;
 }
 
-.project-head { margin-bottom: 48px; }
+.project-head { margin-bottom: 48px; order: 2; }
+.stage { order: 1; }
 
 .project-index {
   font-family: var(--font-body);
@@ -239,7 +242,8 @@ ul, ol { list-style: none; }
 
 .stage {
   position: relative;
-  width: 100%;
+  width: calc(100% + 48px);
+  margin-right: -48px;
   min-height: 700px;
   margin-top: 16px;
 }
@@ -406,16 +410,15 @@ ul, ol { list-style: none; }
     overflow-x: hidden;
   }
   .layout > .logo    { grid-column: 1; grid-row: 1; }
-  .layout > .sidebar { grid-column: 1; grid-row: 2; }
-  .layout > .projects { grid-column: 1; grid-row: 3; }
+  .layout > .sidebar { grid-column: 1; grid-row: 2; min-width: 0; }
+  .layout > .projects { grid-column: 1; grid-row: 3; min-width: 0; }
   .sidebar {
     position: static;
     max-height: none;
     overflow: hidden;
-    overflow-wrap: break-word;
-    word-break: break-word;
     border-radius: 0;
   }
+  .sidebar * { overflow-wrap: break-word; word-break: break-word; min-width: 0; }
   .project-nav {
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -431,7 +434,8 @@ ul, ol { list-style: none; }
   .projects { gap: 0; padding-bottom: 120px; }
   .project + .project { margin-top: 96px; }
 
-  .project-title { font-size: clamp(28px, 9vw, 48px); overflow-wrap: break-word; word-break: break-word; }
+  .project-head, .project-title, .project-meta { overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
+  .project-title { font-size: clamp(28px, 9vw, 48px); }
   .project-meta { font-size: clamp(16px, 4vw, 22px); }
 
   /* on mobile: hero full-width, satellites in a horizontal scroll carousel below */
@@ -440,6 +444,8 @@ ul, ol { list-style: none; }
     flex-direction: column;
     min-height: 0;
     gap: 16px;
+    width: 100%;
+    margin-right: 0;
   }
   .hero {
     position: static;
