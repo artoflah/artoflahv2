@@ -242,9 +242,10 @@ ul, ol { list-style: none; }
 
 .stage {
   position: relative;
-  width: calc(100% + 48px);
+  width: calc(100% + var(--sidebar-w) + var(--gutter) + 96px);
+  margin-left: calc(-1 * (var(--sidebar-w) + var(--gutter) + 48px));
   margin-right: -48px;
-  min-height: 700px;
+  min-height: 100vh;
   margin-top: 16px;
 }
 
@@ -445,6 +446,7 @@ ul, ol { list-style: none; }
     min-height: 0;
     gap: 16px;
     width: 100%;
+    margin-left: 0;
     margin-right: 0;
   }
   .hero {
