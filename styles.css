@@ -129,10 +129,8 @@ ul, ol { list-style: none; }
    ========================================================= */
 
 .project-nav {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
   z-index: 50;
   display: flex;
   flex-wrap: wrap;
@@ -249,6 +247,7 @@ ul, ol { list-style: none; }
   min-height: 700px;
   margin-top: 16px;
 }
+.stage.stage-flat { min-height: auto; }
 
 .hero {
   position: relative;
@@ -395,6 +394,99 @@ ul, ol { list-style: none; }
   #cursor { display: none; }
   html, body, * { cursor: auto; }
 }
+
+/* =========================================================
+   DEVICE FRAMES — browser + phone
+   ========================================================= */
+
+.browser-frame {
+  display: block;
+  border: 1px solid var(--fg);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+  width: 100%;
+  max-width: 720px;
+}
+.browser-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--fg);
+  background: var(--bg);
+}
+.browser-frame-dots {
+  display: flex;
+  gap: 5px;
+}
+.browser-frame-dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--fg);
+  opacity: 0.15;
+  display: block;
+}
+.browser-frame-url {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+.browser-frame-body {
+  display: block;
+  background: #0a0a0a;
+  line-height: 0;
+}
+.browser-frame-body img,
+.browser-frame-body video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.phone-frame {
+  display: block;
+  border: 1px solid var(--fg);
+  border-radius: 22px;
+  padding: 8px 7px;
+  background: var(--bg);
+  width: 148px;
+}
+.phone-frame-speaker {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.phone-frame-speaker span {
+  display: block;
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--fg);
+  opacity: 0.2;
+}
+.phone-frame-body {
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0a0a0a;
+  aspect-ratio: 9 / 19;
+  line-height: 0;
+}
+.phone-frame-body img,
+.phone-frame-body video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* hero with browser-frame inside — prevent .hero img rule from interfering */
+.hero .browser-frame-body img,
+.hero .phone-frame-body img { width: 100%; height: auto; }
 
 /* =========================================================
    MOBILE
