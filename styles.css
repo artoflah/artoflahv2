@@ -129,9 +129,11 @@ ul, ol { list-style: none; }
    ========================================================= */
 
 .project-nav {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 10;
+  left: 0;
+  right: 0;
+  z-index: 50;
   display: flex;
   flex-wrap: wrap;
   gap: 4px 20px;
@@ -169,7 +171,7 @@ ul, ol { list-style: none; }
   gap: 0;
   padding-bottom: 240px;
 }
-.project + .project { margin-top: 160px; }
+.project + .project { margin-top: 10px; }
 
 .project {
   position: relative;
