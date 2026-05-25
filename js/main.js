@@ -4,55 +4,6 @@
    ========================================================= */
 
 (() => {
-  const assetFallbacks = new Map([
-    ['assets/projects/foundry/page1(foundry).png', 'assets/page1(foundry).png'],
-    ['assets/projects/foundry/page2(foundry).png', 'assets/page2(foundry).png'],
-    ['assets/projects/foundry/page3(foundry).png', 'assets/page3(foundry).png'],
-    ['assets/projects/foundry/envelope.png', 'assets/envelope.png'],
-    ['assets/projects/foundry/pin1.png', 'assets/pin1.png'],
-    ['assets/projects/foundry/pin2.png', 'assets/pin2.png'],
-    ['assets/projects/foundry/pin3.png', 'assets/pin3.png'],
-    ['assets/projects/foundry/pin4.png', 'assets/pin4.png'],
-    ['assets/projects/foundry/pin5.png', 'assets/pin5.png'],
-    ['assets/projects/foundry/pin6.png', 'assets/pin6.png'],
-    ['assets/projects/foundry/pin7.png', 'assets/pin7.png'],
-    ['assets/projects/foundry/pin8.png', 'assets/pin8.png'],
-    ['assets/projects/foundry/pin9.png', 'assets/pin9.png'],
-    ['assets/projects/foundry/pin10.png', 'assets/pin10.png'],
-    ['assets/projects/foundry/pin11.png', 'assets/pin11.png'],
-    ['assets/projects/foundry/pin12.png', 'assets/pin12.png'],
-    ['assets/projects/forever-yours/foreveryours,ladybug.webp', 'assets/foreveryours,ladybug.webp'],
-    ['assets/projects/come-home/comehome.webp', 'assets/comehome.webp'],
-    ['assets/projects/come-home/home(drag).png', 'assets/home(drag).png'],
-    ['assets/projects/come-home/home(drag2).png', 'assets/home(drag2).png'],
-    ['assets/projects/scratched-into-being/scratchedintobeing.webp', 'assets/scratchedintobeing.webp'],
-    ['assets/projects/scratched-into-being/scratchedintobeing.gif', 'assets/scratchedintobeing.gif'],
-    ['assets/projects/scratched-into-being/sib(drag).png', 'assets/sib(drag).png'],
-    ['assets/projects/scratched-into-being/sib(drag2).png', 'assets/sib(drag2).png'],
-    ['assets/projects/scratched-into-being/sib(drag3).png', 'assets/sib(drag3).png']
-  ]);
-
-  const normalizeAssetPath = (url) => {
-    try {
-      return new URL(url, window.location.href).pathname.replace(/^\/+/, '');
-    } catch (_) {
-      return url.replace(/^\/+/, '');
-    }
-  };
-
-  document.querySelectorAll('img').forEach((img) => {
-    const tryFallback = () => {
-      if (img.dataset.fallbackTried) return;
-      const fallback = assetFallbacks.get(normalizeAssetPath(img.getAttribute('src') || ''));
-      if (!fallback) return;
-      img.dataset.fallbackTried = 'true';
-      img.src = fallback;
-    };
-
-    img.addEventListener('error', tryFallback);
-    if (img.complete && img.naturalWidth === 0) tryFallback();
-  });
-
   document.querySelectorAll('video').forEach((video) => {
     video.controls = false;
     video.muted = true;
