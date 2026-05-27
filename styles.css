@@ -110,7 +110,7 @@ ul, ol { list-style: none; }
 
 .sidebar-poster {
   position: relative;
-  min-height: 735px;
+  min-height: 635px;
   padding-top: 16px;
   overflow: visible;
 }
@@ -118,13 +118,13 @@ ul, ol { list-style: none; }
 .sidebar-help {
   position: absolute;
   top: 72px;
-  right: -4px;
+  right: 44px;
   z-index: 3;
-  width: 86%;
+  width: 56%;
   margin-left: auto;
   color: rgba(10, 10, 10, 0.48);
-  font-size: clamp(18px, 1.14vw, 22px);
-  line-height: 1;
+  font-size: clamp(18px, 1.vw, 22px);
+  line-height: 1.2;
   text-align: left;
   transform: rotate(-4deg);
   transform-origin: 65% 20%;
@@ -135,11 +135,9 @@ ul, ol { list-style: none; }
   left: calc(-48px - ((100vw - min(100vw, 1600px)) / 2));
   top: 314px;
   z-index: 1;
-  width: min(62vw, 360px);
+  width: min(52vw, 250px);
   aspect-ratio: 1 / 1.21;
   margin: 0;
-  overflow: hidden;
-  background: #d9d9d4;
 }
 
 .sidebar-portrait img {
