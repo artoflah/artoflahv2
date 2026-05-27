@@ -86,11 +86,12 @@ ul, ol { list-style: none; }
   min-width: 0;
   gap: 32px;
   padding: 0 38px 0 0;
-  border-right: 1px solid var(--fg);
+  border-right: none;
   border-radius: 0;
   background: var(--bg);
   max-height: calc(100vh - 64px);
   overflow-y: auto;
+  overflow-x: visible;
   scrollbar-width: none;
   font-size: 22px;
   line-height: 1.08;
@@ -110,6 +111,7 @@ ul, ol { list-style: none; }
   position: relative;
   min-height: 735px;
   padding-top: 16px;
+  overflow: visible;
 }
 
 .sidebar-help {
@@ -129,10 +131,10 @@ ul, ol { list-style: none; }
 
 .sidebar-portrait {
   position: absolute;
-  left: 44px;
+  left: calc(-48px - ((100vw - min(100vw, 1600px)) / 2));
   top: 314px;
   z-index: 1;
-  width: 58%;
+  width: min(62vw, 360px);
   aspect-ratio: 1 / 1.21;
   margin: 0;
   overflow: hidden;
@@ -676,9 +678,9 @@ ul, ol { list-style: none; }
     line-height: 1;
   }
   .sidebar-portrait {
-    left: 56px;
+    left: -24px;
     top: 330px;
-    width: 52%;
+    width: min(70vw, 320px);
     aspect-ratio: 1 / 1.2;
   }
   .sidebar-ladybug {
