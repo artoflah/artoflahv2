@@ -19,6 +19,7 @@
   document.addEventListener('pointermove', (e) => {
     targetX = e.clientX;
     targetY = e.clientY;
+    cursor.style.opacity = '1';
   });
 
   const raf = () => {
