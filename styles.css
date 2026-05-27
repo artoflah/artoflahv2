@@ -40,6 +40,8 @@ html, body {
   font-size: 15px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 /* hide native cursor sitewide — custom cursor takes over on desktop */
@@ -88,7 +90,6 @@ ul, ol { list-style: none; }
   padding: 0 38px 0 0;
   border-right: none;
   border-radius: 0;
-  background: var(--bg);
   max-height: calc(100vh - 64px);
   overflow-y: auto;
   overflow-x: visible;
@@ -636,15 +637,15 @@ ul, ol { list-style: none; }
    ========================================================= */
 
 @media (max-width: 767px) {
-  html, body { overflow-x: hidden; }
+  html, body { overflow-x: clip; }
 
   .layout {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     gap: 24px;
-    width: calc(100vw - 48px);
+    width: 100%;
     padding: 0;
-    margin: 24px auto 0;
+    margin: 24px 0 0;
     max-width: 100%;
     overflow-x: hidden;
   }
@@ -678,7 +679,7 @@ ul, ol { list-style: none; }
     line-height: 1;
   }
   .sidebar-portrait {
-    left: -24px;
+    left: 0;
     top: 330px;
     width: min(70vw, 320px);
     aspect-ratio: 1 / 1.2;
@@ -737,10 +738,10 @@ ul, ol { list-style: none; }
   .satellite-carousel {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: clip;
+    scroll-snap-type: none;
     padding-bottom: 8px;
   }
   .satellite-carousel::-webkit-scrollbar { height: 0; }
