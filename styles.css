@@ -120,8 +120,8 @@ ul, ol { list-style: none; }
   width: 91%;
   margin-left: auto;
   color: rgba(10, 10, 10, 0.48);
-  font-size: clamp(29px, 2.05vw, 39px);
-  line-height: 0.98;
+  font-size: clamp(24px, 1.7vw, 32px);
+  line-height: 1;
   text-align: left;
   transform: rotate(-4deg);
   transform-origin: 65% 20%;
@@ -172,14 +172,13 @@ ul, ol { list-style: none; }
 
 .meta-label {
   font-family: var(--font-body);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0;
   color: var(--fg);
   margin-bottom: 10px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration: none;
 }
 
 .meta-list li {
@@ -188,12 +187,16 @@ ul, ol { list-style: none; }
 }
 
 .contact p {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.02;
 }
 
 .contact a {
-  border-bottom-color: currentColor;
+  border-bottom-color: transparent;
+}
+
+.contact a:hover {
+  border-bottom-color: transparent;
 }
 
 .now-playing {
@@ -202,7 +205,7 @@ ul, ol { list-style: none; }
   border-top: 1px solid var(--fg);
 }
 .np-track {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.05;
   color: var(--muted);
   font-style: italic;
@@ -709,7 +712,7 @@ ul, ol { list-style: none; }
     top: 68px;
     right: 0;
     width: 82%;
-    font-size: clamp(28px, 6.25vw, 38px);
+    font-size: clamp(23px, 5.35vw, 31px);
   }
   .sidebar-portrait {
     left: 56px;
@@ -732,7 +735,7 @@ ul, ol { list-style: none; }
   .bio p,
   .meta-list li,
   .contact p,
-  .np-track { font-size: 24px; }
+  .np-track { font-size: 20px; }
   .sticker-nav {
     position: relative;
     top: auto;
