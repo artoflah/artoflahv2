@@ -108,19 +108,19 @@ ul, ol { list-style: none; }
 
 .sidebar-poster {
   position: relative;
-  min-height: 790px;
+  min-height: 735px;
   padding-top: 16px;
 }
 
 .sidebar-help {
   position: absolute;
-  top: 52px;
-  right: -2px;
+  top: 72px;
+  right: -4px;
   z-index: 3;
-  width: 91%;
+  width: 86%;
   margin-left: auto;
   color: rgba(10, 10, 10, 0.48);
-  font-size: clamp(24px, 1.7vw, 32px);
+  font-size: clamp(18px, 1.14vw, 22px);
   line-height: 1;
   text-align: left;
   transform: rotate(-4deg);
@@ -129,10 +129,10 @@ ul, ol { list-style: none; }
 
 .sidebar-portrait {
   position: absolute;
-  left: 18px;
-  top: 342px;
+  left: 44px;
+  top: 314px;
   z-index: 1;
-  width: 76%;
+  width: 58%;
   aspect-ratio: 1 / 1.21;
   margin: 0;
   overflow: hidden;
@@ -151,11 +151,11 @@ ul, ol { list-style: none; }
 
 .sidebar-ladybug {
   position: absolute;
-  right: 54px;
-  top: 690px;
+  right: 98px;
+  top: 576px;
   z-index: 4;
-  width: 82px;
-  height: 82px;
+  width: 64px;
+  height: 64px;
   transform: rotate(-9deg);
   pointer-events: none;
 }
@@ -258,46 +258,6 @@ ul, ol { list-style: none; }
 .sticker-about {
   margin: 0 10px 0 0;
   transform: rotate(-6deg);
-}
-
-.project-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 10px;
-  align-items: center;
-  margin: -8px 0 24px;
-}
-
-.project-sticker {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 6px;
-  min-height: 30px;
-  padding: 5px 12px 4px;
-  border: 1px solid var(--fg);
-  background: var(--sticker-yellow);
-  box-shadow: 2px 2px 0 var(--fg);
-  font-size: 16px;
-  line-height: 1;
-  text-transform: lowercase;
-}
-
-.project-sticker span {
-  font-size: 0.66em;
-}
-
-.project-sticker:nth-child(1) { transform: rotate(-3deg); }
-.project-sticker:nth-child(2) { transform: rotate(2deg); }
-.project-sticker:nth-child(3) { transform: rotate(-1deg); }
-.project-sticker:nth-child(4) { transform: rotate(3deg); }
-.project-sticker:nth-child(5) { transform: rotate(-2deg); }
-.project-sticker:nth-child(6) { transform: rotate(1deg); }
-
-.project-sticker:hover,
-.project-sticker.active {
-  color: var(--fg);
-  transform: rotate(0deg) translateY(-2px);
-  border-bottom: 1px solid var(--fg);
 }
 
 .sticker-pink { background: var(--accent-soft); }
@@ -705,26 +665,27 @@ ul, ol { list-style: none; }
   }
   .sidebar * { overflow-wrap: break-word; word-break: break-word; min-width: 0; }
   .sidebar-poster {
-    min-height: 780px;
+    min-height: 735px;
     padding-top: 0;
   }
   .sidebar-help {
-    top: 68px;
+    top: 78px;
     right: 0;
     width: 82%;
-    font-size: clamp(23px, 5.35vw, 31px);
+    font-size: clamp(17px, 4vw, 22px);
+    line-height: 1;
   }
   .sidebar-portrait {
     left: 56px;
-    top: 338px;
-    width: 58%;
+    top: 330px;
+    width: 52%;
     aspect-ratio: 1 / 1.2;
   }
   .sidebar-ladybug {
-    top: 668px;
-    right: 17%;
-    width: 82px;
-    height: 82px;
+    top: 590px;
+    right: 23%;
+    width: 62px;
+    height: 62px;
   }
   .contact {
     margin-left: 40px;
@@ -749,11 +710,6 @@ ul, ol { list-style: none; }
   }
   .sticker-extras { margin: 22px 0 0 0; }
   .sticker-about { margin: 0; }
-  .project-actions {
-    gap: 6px 8px;
-    margin: -4px 0 20px;
-  }
-  .project-sticker { font-size: 14px; }
   .projects { gap: 0; padding-bottom: 120px; }
   .project + .project { margin-top: 96px; }
 
