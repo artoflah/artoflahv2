@@ -34,7 +34,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html, body {
-  background: var(--bg);
+  background: transparent;
   color: var(--fg);
   font-family: var(--font-body);
   font-size: 15px;
@@ -91,7 +91,7 @@ ul, ol { list-style: none; }
   border-right: none;
   border-radius: 0;
   background: var(--bg);
-  max-height: calc(100vh - 64px);
+  max-height: none;
   overflow: visible;
   font-size: 15px;
   line-height: 1.08;
@@ -108,19 +108,19 @@ ul, ol { list-style: none; }
 
 .sidebar-poster {
   position: relative;
-  min-height: 522px;
+  min-height: 580px;
   padding-top: 16px;
 }
 
 .sidebar-help {
   position: absolute;
   top: 134px;
-  left: 88px;
+  left: 8px;
   z-index: 3;
   width: 238px;
   margin-left: 0;
   color: rgba(10, 10, 10, 0.48);
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.06;
   text-align: left;
   transform: rotate(-4deg);
@@ -129,10 +129,10 @@ ul, ol { list-style: none; }
 
 .sidebar-portrait {
   position: absolute;
-  left: -48px;
+  left: -115px;
   top: 256px;
   z-index: 1;
-  width: 226px;
+  width: 280px;
   aspect-ratio: 1 / 1.14;
   margin: 0;
   overflow: visible;
@@ -150,12 +150,12 @@ ul, ol { list-style: none; }
 
 .sidebar-ladybug {
   position: absolute;
-  left: 168px;
-  top: 464px;
+  left: 130px;
+  top: 540px;
   z-index: 4;
-  width: 58px;
-  height: 58px;
-  transform: rotate(-9deg);
+  width: 70px;
+  height: 70px;
+  transform: rotate(9deg);
   pointer-events: none;
 }
 
@@ -192,6 +192,20 @@ ul, ol { list-style: none; }
 
 .contact a {
   border-bottom-color: transparent;
+}
+
+.sidebar a {
+  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.55), rgba(248, 234, 35, 0.72), rgba(111, 215, 255, 0.55));
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+  background-size: 0 42%;
+  transition: background-size 0.18s ease, color 0.15s ease;
+}
+
+.sidebar a:hover {
+  border-bottom-color: transparent;
+  color: var(--fg);
+  background-size: 100% 42%;
 }
 
 .now-playing {
