@@ -27,8 +27,8 @@
   --font-display: 'Display', 'Times New Roman', serif;
   --font-body: 'Display', 'Instrument Sans', system-ui, -apple-system, sans-serif;
 
-  --sidebar-w: 470px;
-  --gutter: 34px;
+  --sidebar-w: 390px;
+  --gutter: 36px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -86,18 +86,16 @@ ul, ol { list-style: none; }
   display: flex;
   flex-direction: column;
   min-width: 0;
-  gap: 32px;
-  padding: 0 38px 0 0;
-  border-right: none;
-  border-radius: 0;
+  gap: 48px;
+  padding: 44px 42px;
+  border: 2px solid var(--fg);
+  border-radius: 6px;
+  background: var(--bg);
   max-height: calc(100vh - 64px);
   overflow-y: auto;
-  overflow-x: visible;
-  scrollbar-width: none;
-  font-size: 22px;
-  line-height: 1.08;
+  font-size: 24px;
+  line-height: 1.45;
 }
-.sidebar::-webkit-scrollbar { width: 0; height: 0; }
 
 .logo {
   display: flex;
@@ -108,106 +106,48 @@ ul, ol { list-style: none; }
 .logo img { width: 40px; height: 40px; display: block; }
 .logo:hover { border-bottom: none; }
 
-.sidebar-poster {
-  position: relative;
-  min-height: 635px;
-  padding-top: 16px;
-  overflow: visible;
-}
-
-.sidebar-help {
-  position: absolute;
-  top: 72px;
-  right: 44px;
-  z-index: 3;
-  width: 56%;
-  margin-left: auto;
-  color: rgba(10, 10, 10, 0.48);
-  font-size: clamp(18px, 1.vw, 22px);
-  line-height: 1.2;
-  text-align: left;
-  transform: rotate(-4deg);
-  transform-origin: 65% 20%;
-}
-
-.sidebar-portrait {
-  position: absolute;
-  left: calc(-48px - ((100vw - min(100vw, 1600px)) / 2));
-  top: 314px;
-  z-index: 1;
-  width: min(52vw, 250px);
-  aspect-ratio: 1 / 1.21;
-  margin: 0;
-}
-
-.sidebar-portrait img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  filter: grayscale(1) contrast(1.3) brightness(1.08);
-  opacity: 0.86;
-}
-
-.sidebar-ladybug {
-  position: absolute;
-  right: 98px;
-  top: 576px;
-  z-index: 4;
-  width: 64px;
-  height: 64px;
-  transform: rotate(-9deg);
-  pointer-events: none;
-}
-
 .contact {
-  margin-left: 80px;
+  margin-left: 0;
 }
 
 .bio p {
-  margin-bottom: 0.85em;
-  font-size: 18px;
-  line-height: 1.08;
+  margin-bottom: 0;
+  font-size: 24px;
+  line-height: 1.45;
 }
 
 .meta-label {
   font-family: var(--font-body);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0;
-  color: var(--fg);
-  margin-bottom: 10px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 20px;
   text-decoration: none;
 }
 
 .meta-list li {
-  font-size: 18px;
-  line-height: 1.02;
+  font-size: 24px;
+  line-height: 1.45;
 }
 
 .contact p {
-  font-size: 20px;
-  line-height: 1.02;
+  font-size: 24px;
+  line-height: 1.45;
 }
 
 .contact a {
   border-bottom-color: transparent;
 }
 
-.contact a:hover {
-  border-bottom-color: transparent;
-}
-
 .now-playing {
-  margin-left: 80px;
-  padding-top: 16px;
-  border-top: 1px solid var(--fg);
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
 }
 .np-track {
-  font-size: 20px;
-  line-height: 1.05;
+  font-size: 24px;
+  line-height: 1.45;
   color: var(--muted);
   font-style: italic;
 }
@@ -655,49 +595,22 @@ ul, ol { list-style: none; }
     width: 100%;
     max-width: 100%;
     max-height: none;
-    overflow: hidden;
-    padding: 0;
-    border-right: none;
-    border-bottom: 1px solid var(--fg);
-    border-radius: 0;
+    overflow: visible;
+    padding: 42px;
+    border: 2px solid var(--fg);
+    border-radius: 6px;
   }
   .logo {
     display: none;
   }
   .sidebar * { overflow-wrap: break-word; word-break: break-word; min-width: 0; }
-  .sidebar-poster {
-    min-height: 735px;
-    padding-top: 0;
-  }
-  .sidebar-help {
-    top: 78px;
-    right: 0;
-    width: 82%;
-    font-size: clamp(17px, 4vw, 22px);
-    line-height: 1;
-  }
-  .sidebar-portrait {
-    left: 0;
-    top: 330px;
-    width: min(70vw, 320px);
-    aspect-ratio: 1 / 1.2;
-  }
-  .sidebar-ladybug {
-    top: 590px;
-    right: 23%;
-    width: 62px;
-    height: 62px;
-  }
   .contact {
-    margin-left: 40px;
-  }
-  .now-playing {
-    margin-left: 40px;
+    margin-left: 0;
   }
   .bio p,
   .meta-list li,
   .contact p,
-  .np-track { font-size: 20px; }
+  .np-track { font-size: 24px; }
   .sticker-nav {
     position: relative;
     top: auto;
