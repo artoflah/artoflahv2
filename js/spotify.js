@@ -7,6 +7,7 @@
   const el = document.getElementById('now-playing');
   if (!el) return;
   const track = el.querySelector('.np-track');
+  const headingLink = el.querySelector('.spotify-heading-link');
 
   const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -15,11 +16,13 @@
   const render = (data) => {
     if (!data || !data.title) {
       track.textContent = 'nothing playing right now';
+      if (headingLink) headingLink.href = 'https://open.spotify.com/';
       return;
     }
     const prefix = data.playing ? 'now: ' : 'last played: ';
     track.innerHTML = `${prefix}<span class="np-title">${escapeHtml(data.title)}</span> — ${escapeHtml(data.artist || '')}`;
     if (data.url) {
+      if (headingLink) headingLink.href = data.url;
       track.innerHTML += ` <a href="${data.url}" target="_blank" rel="noopener">↗</a>`;
     }
   };
@@ -32,6 +35,7 @@
       render(data);
     } catch (err) {
       track.textContent = 'spotify is shy right now';
+      if (headingLink) headingLink.href = 'https://open.spotify.com/';
     }
   };
 
