@@ -128,7 +128,7 @@ ul, ol { list-style: none; }
 
 .sidebar-portrait {
   position: absolute;
-  left: -115px;
+  left: -48px;
   top: 256px;
   z-index: 1;
   width: 280px;
@@ -143,8 +143,8 @@ ul, ol { list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: grayscale(1) contrast(1.24) brightness(1.05);
-  opacity: 0.9;
+  filter: grayscale(1) contrast(1.45) brightness(0.9);
+  opacity: 1;
 }
 
 .sidebar-ladybug {
@@ -321,6 +321,34 @@ ul, ol { list-style: none; }
   margin: 0;
   max-width: 960px;
 }
+
+.project-summary {
+  max-width: 760px;
+  font-family: var(--font-body);
+  font-size: clamp(20px, 2.2vw, 30px);
+  line-height: 1.18;
+  color: var(--fg);
+}
+
+.project-title a,
+.detail-media-link {
+  border-bottom: none;
+}
+
+.project-title a:hover {
+  color: var(--accent);
+  border-bottom: none;
+}
+
+.detail-media-link {
+  display: block;
+  pointer-events: auto;
+}
+
+.detail-media-link:hover {
+  color: inherit;
+  border-bottom: none;
+}
 .project-meta > div {
   display: inline;
 }
@@ -363,6 +391,239 @@ ul, ol { list-style: none; }
   font-family: var(--font-body);
   font-size: 13px;
   color: var(--muted);
+}
+
+/* =========================================================
+   MISCELLANEOUS INDEX
+   ========================================================= */
+
+.misc-index {
+  min-height: 100vh;
+  padding: 18px 22px 28px;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.misc-topnav {
+  position: sticky;
+  top: 14px;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 26px;
+  pointer-events: none;
+}
+
+.misc-topnav a {
+  pointer-events: auto;
+  border-bottom: none;
+  font-size: 18px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.misc-topnav img {
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+
+.misc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.misc-entry {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(160px, 0.36fr) 58px minmax(260px, 0.7fr);
+  column-gap: 18px;
+  align-items: end;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.misc-media {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.misc-media img,
+.misc-media video {
+  display: block;
+  width: auto;
+  max-width: min(132px, 10.5vw);
+  max-height: 154px;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.08);
+}
+
+.misc-media img:nth-child(2n) {
+  max-height: 126px;
+}
+
+.misc-media img:nth-child(3n),
+.misc-media video:nth-child(3n) {
+  max-height: 104px;
+}
+
+.misc-entry h1 {
+  font-family: var(--font-body);
+  font-size: clamp(26px, 3.4vw, 54px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.misc-year,
+.misc-entry p {
+  font-size: clamp(15px, 1.25vw, 20px);
+  line-height: 1.14;
+}
+
+.misc-year {
+  color: var(--muted);
+}
+
+.misc-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  justify-content: flex-end;
+  padding-top: 28px;
+  font-size: clamp(18px, 2vw, 30px);
+  line-height: 1;
+}
+
+.misc-footer a {
+  border-bottom-color: currentColor;
+}
+
+/* =========================================================
+   PROJECT DETAIL PAGES
+   ========================================================= */
+
+.detail-page {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+.detail-nav {
+  position: fixed;
+  top: 18px;
+  left: 22px;
+  right: 22px;
+  z-index: 30;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.detail-nav a {
+  pointer-events: auto;
+  border-bottom: none;
+  font-size: 18px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.detail-nav img {
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+  gap: 34px;
+  align-items: start;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 86px 48px 48px;
+}
+
+.detail-images {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 0;
+}
+
+.detail-images img,
+.detail-images video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.detail-image-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.detail-copy {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  max-height: calc(100vh - 112px);
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.detail-index {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.detail-title {
+  margin-bottom: 14px;
+  font-family: var(--font-body);
+  font-size: clamp(42px, 4vw, 70px);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: 0;
+}
+
+.detail-meta {
+  margin-bottom: 28px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.detail-meta p + p {
+  margin-top: 4px;
+}
+
+.detail-copy h2 {
+  margin: 28px 0 10px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.detail-copy p {
+  font-size: 20px;
+  line-height: 1.26;
+}
+
+.detail-copy p + p {
+  margin-top: 16px;
+}
+
+.detail-copy a {
+  border-bottom-color: currentColor;
 }
 
 /* =========================================================
@@ -764,4 +1025,57 @@ ul, ol { list-style: none; }
      hide them on mobile since they're absolutely positioned and won't reflow */
   .stage > .satellite,
   .stage > .satellite-motion { display: none; }
+
+  .misc-index {
+    padding: 18px 14px 28px;
+  }
+  .misc-entry {
+    display: block;
+    padding-bottom: 28px;
+  }
+  .misc-media {
+    margin-bottom: 12px;
+  }
+  .misc-media img,
+  .misc-media video {
+    max-width: 31vw;
+    max-height: 136px;
+  }
+  .misc-entry h1 {
+    font-size: 38px;
+    margin-bottom: 6px;
+  }
+  .misc-year {
+    margin-bottom: 10px;
+  }
+  .misc-footer {
+    justify-content: flex-start;
+  }
+
+  .detail-nav {
+    position: static;
+    padding: 18px 14px 0;
+  }
+  .detail-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px 14px 36px;
+  }
+  .detail-images {
+    order: 2;
+  }
+  .detail-copy {
+    position: static;
+    order: 1;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+  .detail-image-row {
+    grid-template-columns: 1fr;
+  }
+  .detail-copy p {
+    font-size: 18px;
+  }
 }
