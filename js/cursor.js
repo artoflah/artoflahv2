@@ -41,7 +41,7 @@
     const target = e.target;
     if (!(target instanceof Element)) return;
 
-    if (target.closest('.satellite')) {
+    if (target.closest('.satellite, .draggable-art')) {
       setState('grab');
     } else if (target.closest('.gif-hero, .satellite-motion')) {
       setState('play');
@@ -53,14 +53,14 @@
   // grabbing state while actively dragging
   document.addEventListener('pointerdown', (e) => {
     const target = e.target;
-    if (target instanceof Element && target.closest('.satellite')) {
+    if (target instanceof Element && target.closest('.satellite, .draggable-art')) {
       setState('grabbing');
     }
   });
   document.addEventListener('pointerup', () => {
     // revert to whatever we should be showing
     const hovered = document.elementFromPoint(targetX, targetY);
-    if (hovered && hovered.closest('.satellite')) setState('grab');
+    if (hovered && hovered.closest('.satellite, .draggable-art')) setState('grab');
     else if (hovered && hovered.closest('.gif-hero, .satellite-motion')) setState('play');
     else setState(null);
   });

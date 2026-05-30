@@ -80,8 +80,10 @@ ul, ol { list-style: none; }
    ========================================================= */
 
 .sidebar {
-  position: sticky;
-  top: 32px;
+  position: fixed;
+  top: 48px;
+  left: max(48px, calc((100vw - 1600px) / 2 + 48px));
+  width: var(--sidebar-w);
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -291,12 +293,14 @@ ul, ol { list-style: none; }
 }
 
 .project-head {
-  margin: -18px 0 34px;
+  margin: -78px 0 56px;
   order: 2;
   width: 100%;
   max-width: 760px;
   text-align: center;
   align-self: center;
+  position: relative;
+  z-index: 20;
 }
 .stage { order: 1; }
 
@@ -336,21 +340,24 @@ ul, ol { list-style: none; }
 }
 
 .project-caption {
-  display: inline-block;
-  max-width: 720px;
+  display: inline;
   border-bottom-color: transparent;
   font-family: var(--font-body);
   font-size: clamp(15px, 1.25vw, 19px);
   line-height: 1.18;
   color: var(--fg);
+  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.45), rgba(248, 234, 35, 0.7), rgba(111, 215, 255, 0.45));
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+  background-size: 0 38%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.18s ease, color 0.15s ease;
 }
 
 .project-caption:hover {
   color: var(--fg);
   border-bottom-color: transparent;
-  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.45), rgba(248, 234, 35, 0.7), rgba(111, 215, 255, 0.45));
-  background-position: 0 88%;
-  background-repeat: no-repeat;
   background-size: 100% 38%;
 }
 
@@ -766,44 +773,19 @@ ul, ol { list-style: none; }
 
 .about-page {
   display: grid;
-  grid-template-columns: 210px minmax(0, 760px);
-  gap: 80px;
+  grid-template-columns: var(--sidebar-w) minmax(0, 760px);
+  column-gap: var(--gutter);
   min-height: 100vh;
-  padding: 34px;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 48px;
   background: var(--bg);
   color: var(--fg);
+  align-items: start;
+  justify-content: center;
 }
 
-.about-side {
-  position: sticky;
-  top: 34px;
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  gap: 36px;
-}
-
-.about-side a {
-  display: table;
-  width: fit-content;
-  border-bottom-color: transparent;
-}
-
-.about-side img {
-  display: block;
-  width: 40px;
-  height: 40px;
-}
-
-.about-side nav {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  font-size: 18px;
-  line-height: 1;
-}
-
-.about-side nav a:hover,
 .about-copy a:hover {
   color: var(--fg);
   border-bottom-color: transparent;
@@ -814,6 +796,7 @@ ul, ol { list-style: none; }
 }
 
 .about-copy {
+  grid-column: 2;
   padding-top: 10vh;
 }
 
@@ -834,12 +817,28 @@ ul, ol { list-style: none; }
 
 .about-copy p {
   max-width: 720px;
-  font-size: clamp(24px, 3.2vw, 44px);
-  line-height: 1.08;
+  font-size: clamp(20px, 2.25vw, 32px);
+  line-height: 1.14;
 }
 
 .about-copy p + p {
   margin-top: 18px;
+}
+
+.about-skill-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 28px;
+  max-width: 720px;
+  list-style: none;
+  font-size: clamp(18px, 1.9vw, 26px);
+  line-height: 1.12;
+}
+
+.about-skill-list li::before {
+  content: "/";
+  margin-right: 8px;
+  color: var(--accent);
 }
 
 /* =========================================================
@@ -852,19 +851,8 @@ ul, ol { list-style: none; }
   max-width: 1100px;
   min-height: 700px;
   margin: 16px auto 0;
-  transition: filter 0.18s ease, transform 0.18s ease;
 }
 .stage.stage-flat { min-height: auto; }
-
-.project:hover .stage {
-  filter: drop-shadow(0 10px 0 rgba(255, 111, 163, 0.12));
-}
-
-.project:hover .detail-media-link img,
-.project:hover .detail-media-link video,
-.project:hover .detail-media-link.browser-frame {
-  transform: rotate(-0.35deg) scale(1.01);
-}
 
 .hero {
   position: relative;
@@ -910,11 +898,18 @@ ul, ol { list-style: none; }
   height: auto;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
 }
+.draggable-art {
+  pointer-events: auto !important;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+}
 .satellite:not([style*="max-width"]) {
   max-width: 200px;
 }
 
-.satellite.is-dragging {
+.satellite.is-dragging,
+.draggable-art.is-dragging {
   transition: none !important;
   filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
   z-index: 99;

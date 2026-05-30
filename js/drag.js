@@ -8,55 +8,39 @@
   const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   if (isCoarse) return;
 
-  const satellites = document.querySelectorAll('.satellite');
+  document.querySelectorAll('.layout img, .projects img, .sidebar img').forEach((el) => {
+    if (el.closest('#cursor')) return;
+    el.classList.add('draggable-art');
+  });
 
-  satellites.forEach((el) => {
+  const draggableItems = document.querySelectorAll('.satellite, .draggable-art');
+
+  draggableItems.forEach((el) => {
     // state per element
-    let startX = 0, startY = 0;         // pointer position at pickup
-    let elStartX = 0, elStartY = 0;     // element position at pickup (px)
-    let currentX = 0, currentY = 0;     // current element position (px, relative to container)
-    let rotation = 0;                   // pickup rotation (random on grab)
+    let startX = 0, startY = 0;
+    let baseX = 0, baseY = 0;
+    let currentX = 0, currentY = 0;
     let isDragging = false;
-    let container = null;
-
-    // read the resting rotation from the css var --r (e.g. "6deg")
-    const cssR = el.style.getPropertyValue('--r').trim();
-    const baseRotation = cssR ? parseFloat(cssR) : 0;
+    const computedTransform = window.getComputedStyle(el).transform;
+    const baseTransform = computedTransform && computedTransform !== 'none' ? computedTransform : '';
 
     const onPointerDown = (e) => {
       if (e.button !== undefined && e.button !== 0) return; // left click only
       e.preventDefault();
 
-      // use the stage (not the carousel wrapper) for clamping bounds
-      container = el.closest('.stage') || el.closest('.satellite-carousel') || el.parentElement;
-      const rect = el.getBoundingClientRect();
-      const containerRect = container.getBoundingClientRect();
-
-      // convert current position (which may be set via left/top %) to absolute px within container
-      elStartX = rect.left - containerRect.left;
-      elStartY = rect.top - containerRect.top;
-      currentX = elStartX;
-      currentY = elStartY;
-
       startX = e.clientX;
       startY = e.clientY;
-
-      // random rotation on pickup between -6 and +6 deg
-      rotation = (Math.random() * 12 - 6);
-
-      // lock element to px coords for dragging
-      el.style.left = elStartX + 'px';
-      el.style.top = elStartY + 'px';
-      el.style.setProperty('--x', 'auto');
-      el.style.setProperty('--y', 'auto');
+      baseX = Number(el.dataset.dragX || 0);
+      baseY = Number(el.dataset.dragY || 0);
+      currentX = baseX;
+      currentY = baseY;
 
       el.classList.add('is-dragging');
       el.setPointerCapture(e.pointerId);
       isDragging = true;
 
-      // defer scale-up to next frame so the left/top switch settles first
       requestAnimationFrame(() => {
-        el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1.04)`;
+        el.style.transform = `translate3d(${baseX}px, ${baseY}px, 0) ${baseTransform} scale(1.04)`;
       });
     };
 
@@ -65,13 +49,10 @@
       const dx = e.clientX - startX;
       const dy = e.clientY - startY;
 
-      currentX = elStartX + dx;
-      currentY = elStartY + dy;
+      currentX = baseX + dx;
+      currentY = baseY + dy;
 
-      const offsetX = currentX - elStartX;
-      const offsetY = currentY - elStartY;
-
-      el.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0) rotate(${rotation}deg) scale(1.04)`;
+      el.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) ${baseTransform} scale(1.04)`;
     };
 
     const onPointerUp = (e) => {
@@ -79,23 +60,16 @@
       isDragging = false;
 
       el.classList.remove('is-dragging');
+      el.dataset.dragX = String(currentX);
+      el.dataset.dragY = String(currentY);
 
-      // Frame 1: force-suppress all transitions, commit left/top, zero the
-      // translate but keep scale at 1.04 so there's nothing to animate yet.
-      // This is the frame that was causing the jump — left snapped but the
-      // browser tried to animate the translate back through the is-lifted
-      // transition, making the element fly forward before settling.
       el.style.transition = 'none';
-      el.style.left = currentX + 'px';
-      el.style.top = currentY + 'px';
-      el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1.04)`;
+      el.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) ${baseTransform} scale(1.04)`;
 
-      // Frame 2: position is already committed with no animation. Now restore
-      // the cascade and let only the scale drop animate cleanly.
       requestAnimationFrame(() => {
         el.style.transition = '';
         el.classList.add('is-lifted');
-        el.style.transform = `translate3d(0, 0, 0) rotate(${rotation}deg) scale(1)`;
+        el.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) ${baseTransform} scale(1)`;
         setTimeout(() => el.classList.remove('is-lifted'), 300);
       });
 
