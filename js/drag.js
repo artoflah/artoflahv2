@@ -8,12 +8,7 @@
   const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
   if (isCoarse) return;
 
-  document.querySelectorAll('.layout img, .projects img, .sidebar img').forEach((el) => {
-    if (el.closest('#cursor')) return;
-    el.classList.add('draggable-art');
-  });
-
-  const draggableItems = document.querySelectorAll('.satellite, .draggable-art');
+  const draggableItems = document.querySelectorAll('.satellite');
 
   draggableItems.forEach((el) => {
     // state per element
@@ -23,6 +18,12 @@
     let isDragging = false;
     const computedTransform = window.getComputedStyle(el).transform;
     const baseTransform = computedTransform && computedTransform !== 'none' ? computedTransform : '';
+    const initialX = Number(el.dataset.dragX || 0);
+    const initialY = Number(el.dataset.dragY || 0);
+
+    if (initialX || initialY) {
+      el.style.transform = `translate3d(${initialX}px, ${initialY}px, 0) ${baseTransform} scale(1)`;
+    }
 
     const onPointerDown = (e) => {
       if (e.button !== undefined && e.button !== 0) return; // left click only

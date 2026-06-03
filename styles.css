@@ -225,14 +225,16 @@ ul, ol { list-style: none; }
    ========================================================= */
 
 .sticker-nav {
-  position: sticky;
-  top: 18px;
+  position: fixed;
+  top: 34px;
+  left: calc(var(--sidebar-w) + var(--gutter) + max(48px, calc((100vw - 1600px) / 2 + 48px)));
+  right: max(48px, calc((100vw - 1600px) / 2 + 48px));
   z-index: 60;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   min-height: 86px;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   pointer-events: none;
 }
 
@@ -243,7 +245,7 @@ ul, ol { list-style: none; }
   min-height: 42px;
   padding: 7px 22px 5px;
   border: none;
-  background: var(--accent-soft);
+  background: #fff06a;
   color: var(--fg);
   font-size: 30px;
   line-height: 1;
@@ -259,12 +261,12 @@ ul, ol { list-style: none; }
 }
 
 .sticker-extras {
-  margin: 34px 0 0 -12px;
+  margin: 72px 0 0 -12px;
   transform: rotate(2deg);
 }
 
 .sticker-about {
-  margin: 0 10px 0 0;
+  margin: 10px 10px 0 0;
   transform: rotate(-6deg);
 }
 
@@ -283,6 +285,7 @@ ul, ol { list-style: none; }
   width: 100%;
   min-width: 0;
 }
+
 .project + .project { margin-top: 10px; }
 
 .project {
@@ -382,6 +385,10 @@ ul, ol { list-style: none; }
 
 .detail-media-link {
   display: block;
+  pointer-events: auto;
+}
+
+.hero .detail-media-link {
   pointer-events: auto;
 }
 
@@ -919,8 +926,13 @@ ul, ol { list-style: none; }
 
 .detail-media-link img,
 .detail-media-link video,
-.detail-media-link.browser-frame {
+.detail-media-link.browser-frame,
+.detail-media-link.printed-proof {
   transition: transform 0.18s ease;
+}
+
+.hero.detail-media-link {
+  pointer-events: auto;
 }
 
 /* on desktop, the carousel wrapper is an invisible positioned layer that
@@ -979,29 +991,8 @@ ul, ol { list-style: none; }
 }
 .satellite-motion img { display: block; width: 100%; height: auto; }
 .satellite-motion .motion-playing {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.25s;
-}
-.satellite-motion:hover .motion-playing { opacity: 1; }
-.satellite-motion:hover .satellite-play-hint { opacity: 0; }
-
-/* small "▶ play" label on the motion still — fades on hover */
-.satellite-play-hint {
-  position: absolute;
-  bottom: 8px;
-  right: 10px;
-  font-family: var(--font-body);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--bg);
-  opacity: 0.7;
-  pointer-events: none;
-  transition: opacity 0.25s;
-  line-height: 1;
+  width: 135%;
+  height: auto;
 }
 
 /* =========================================================
@@ -1134,6 +1125,82 @@ ul, ol { list-style: none; }
   display: block;
   width: 100%;
   height: auto;
+}
+
+.printed-proof {
+  position: relative;
+  display: block;
+  width: min(640px, 88vw);
+  flex: 1 1 500px;
+  padding: 24px 24px 18px;
+  background: #fbfaf5;
+  border: 0;
+  box-shadow:
+    9px 12px 0 rgba(10, 10, 10, 0.07),
+    0 0 0 1px rgba(255, 255, 255, 0.75) inset;
+  color: var(--fg);
+  transform: rotate(-1.5deg);
+}
+
+.printed-proof::before,
+.printed-proof::after {
+  content: "";
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+  opacity: 0.34;
+}
+
+.printed-proof::before {
+  top: 9px;
+  left: 9px;
+  border-top: 1px solid rgba(10, 10, 10, 0.7);
+  border-left: 1px solid rgba(10, 10, 10, 0.7);
+}
+
+.printed-proof::after {
+  right: 9px;
+  bottom: 9px;
+  border-right: 1px solid rgba(10, 10, 10, 0.7);
+  border-bottom: 1px solid rgba(10, 10, 10, 0.7);
+}
+
+.printed-proof-media {
+  display: block;
+  overflow: hidden;
+  background: #0a0a0a;
+  line-height: 0;
+}
+
+.printed-proof--site .printed-proof-media {
+  aspect-ratio: 16 / 10;
+}
+
+.printed-proof-media video,
+.printed-proof-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.printed-proof--site .printed-proof-media video,
+.printed-proof--site .printed-proof-media img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.printed-proof-label {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-top: 12px;
+  padding: 0;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: clamp(11px, 0.88vw, 13px);
+  line-height: 1.05;
+  text-transform: uppercase;
 }
 
 .phone-frame {
