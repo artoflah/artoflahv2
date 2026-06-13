@@ -3,86 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>about - @artoflah</title>
-  <meta name="description" content="about mi'lah clark / artoflah.">
+  <title>About - @artoflah</title>
+  <meta name="description" content="About Mi'Lah Clark / Artoflah.">
   <link rel="preload" href="assets/fonts/display.otf" as="font" type="font/otf" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/instrument-sans/400.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/instrument-sans/500.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/logo-ladybug.svg">
 </head>
-<body>
+<body class="about-body">
 
   <div id="cursor" aria-hidden="true">
     <img id="cursor-ladybug" src="assets/cursors/ladybug.svg" alt="">
   </div>
 
+  <div class="home-clock">
+    <a href="index.html" aria-label="Home"><img src="assets/logo-ladybug.svg" alt="@artoflah"></a>
+    <time id="local-clock" datetime="">--:-- --</time>
+  </div>
+
+  <nav class="home-corner-nav" aria-label="primary navigation">
+    <a href="index.html">Home</a>
+    <a href="index.html#projects-start">Projects</a>
+  </nav>
+
+  <p class="home-bio">Mi'Lah (mee-lah) Clark, also known as Artoflah, is a multidisciplinary graphic designer based between New Jersey and New York. She is currently studying Communication Design at Parsons School of Design with a minor in Fine Arts, making work across book design, typography, print, web, UX/UI, motion, object-making, and whatever strange format the idea starts asking for.</p>
+
+  <section class="home-contact">
+    <p class="home-contact-label">Reach Me @</p>
+    <p><a href="mailto:hello@artoflah.com">hello@artoflah.com</a></p>
+    <p><a href="https://www.instagram.com/artoflah/" target="_blank" rel="noopener">Instagram ↗</a></p>
+    <p><a href="https://www.linkedin.com/in/mi-lah-clark/" target="_blank" rel="noopener">LinkedIn ↗</a></p>
+    <p><a href="https://www.cosmos.so/artoflah" target="_blank" rel="noopener">Cosmos ↗</a></p>
+  </section>
+
+  <section class="home-now-playing now-playing" id="now-playing" aria-live="polite">
+    <h2><a class="spotify-heading-link" href="https://open.spotify.com/user/1l39grb1pery2mq5jwj3hbhz5?si=714616ac8f304ea6" target="_blank" rel="noopener">Currently Listening To ↗</a></h2>
+    <p class="np-track">Loading...</p>
+  </section>
+
+  <a class="home-vault-link" href="miscellaneous.html">Vault</a>
+
   <main class="about-page">
-    <aside class="sidebar" id="about-sidebar">
-
-      <section class="sidebar-poster">
-        <p class="sidebar-help">
-          hello world, i am a fine artist / poet / indesign lover /
-          writer / an intellectual / a spotify DJ (R&amp;B only) /
-          an air sign / 2048 freak / entrepenuer / painter /
-          hard-drive hoarder / color lover / complainer / stuck inside
-          the body of a multidisciplinary (graphic) designer!
-        </p>
-        <figure class="sidebar-portrait">
-          <img src="assets/littleme.jpg" alt="">
-        </figure>
-        <img class="sidebar-ladybug" src="assets/logo-ladybug.svg" alt="">
-      </section>
-
-      <section class="contact">
-        <h3 class="meta-label">reach me</h3>
-        <p><a href="mailto:hello@artoflah.com">hello@artoflah.com</a></p>
-        <p><a href="https://www.instagram.com/artoflah/" target="_blank" rel="noopener">instagram ↗</a></p>
-        <p><a href="https://www.linkedin.com/in/mi-lah-clark/" target="_blank" rel="noopener">linkedin ↗</a></p>
-        <p><a href="#" target="_blank" rel="noopener">resume ↗</a></p>
-      </section>
-
-      <section class="now-playing" id="now-playing" aria-live="polite">
-        <h3 class="meta-label"><a class="spotify-heading-link" href="https://open.spotify.com/user/1l39grb1pery2mq5jwj3hbhz5?si=714616ac8f304ea6" target="_blank" rel="noopener">currently listening to</a></h3>
-        <p class="np-track">loading...</p>
-      </section>
-
-    </aside>
-
     <section class="about-copy">
-      <nav class="about-local-nav" aria-label="about page links">
-        <a href="index.html">home</a>
-        <a href="index.html#projects-start">projects</a>
-      </nav>
+      <p>She is curious, fast, funny, detail-obsessed, and very good at turning messy research into something people can actually look at, hold, click, read, and understand.</p>
+      <p>She is currently looking for an internship and is open to collaborations.</p>
 
-      <p>mi'lah (mee-lah) clark, also known as artoflah, is a multidisciplinary graphic designer based between new jersey and new york. she is currently studying communication design at parsons school of design with a minor in fine arts, making work across book design, typography, print, web, ux/ui, motion, object-making, and whatever strange format the idea starts asking for.</p>
-      <p>she is curious, fast, funny, detail-obsessed, and very good at turning messy research into something people can actually look at, hold, click, read, and understand. she is currently looking for internships, collaborations, and design work with studios, brands, artists, publications, cultural spaces, or solo entrepreneurs who need someone thoughtful, flexible, and a little bit obsessive in the best way.</p>
-
-      <h2>skills & programs</h2>
+      <h2>Skills &amp; Programs</h2>
       <ul class="about-skill-list">
-        <li>graphic design</li>
-        <li>art direction</li>
-        <li>editorial & publication design</li>
-        <li>typography</li>
-        <li>book design</li>
-        <li>print production</li>
-        <li>web design</li>
-        <li>ux/ui design</li>
-        <li>front-end coding</li>
-        <li>creative coding</li>
-        <li>motion graphics</li>
-        <li>3d rendering & mockups</li>
-        <li>brand systems</li>
-        <li>research & writing</li>
-        <li>adobe / figma / canva / procreate / blender / vs code / cursor / html / css / javascript / github / vercel</li>
+        <li>Graphic Design</li>
+        <li>Art Direction</li>
+        <li>Editorial &amp; Publication Design</li>
+        <li>Typography</li>
+        <li>Book Design</li>
+        <li>Print Production</li>
+        <li>Web Design</li>
+        <li>UX/UI Design</li>
+        <li>Front-End Coding</li>
+        <li>Creative Coding</li>
+        <li>Motion Graphics</li>
+        <li>3D Rendering &amp; Mockups</li>
+        <li>Brand Systems</li>
+        <li>Research &amp; Writing</li>
+        <li>Adobe / Figma / Canva / Procreate / Blender / VS Code / Cursor / HTML / CSS / JavaScript / GitHub / Vercel</li>
       </ul>
 
-      <h2>awards etc.</h2>
-      <p>parsons school of design <br> 20K Merit Scholarship & 15K in Grants.</p>
-      <p>middlesex county vocational school <br> awarded Best Graphic Designer in Class. awarded Second Place in Promotional Bulletin Board Competition for SkillsUSA. certified in Adobe Creative Suite and Google, with experience designing for consumer products, app concepts, social media, presentations, and printed materials.</p>
+      <h2>Awards Etc.</h2>
+      <p>Parsons School of Design<br>$20K Merit Scholarship &amp; $15K in Grants.</p>
+      <p>Middlesex County Vocational School<br>Awarded Best Graphic Designer in Class. Awarded Second Place in the Promotional Bulletin Board Competition for SkillsUSA. Certified in Adobe Creative Suite and Google, with experience designing consumer products, app concepts, social media, presentations, and printed materials.</p>
     </section>
   </main>
 
+  <script src="js/main.js" defer></script>
   <script src="js/spotify.js" defer></script>
   <script src="js/cursor.js" defer></script>
 </body>

@@ -16,11 +16,11 @@
 
   const render = (data) => {
     if (!data || !data.title) {
-      track.textContent = 'nothing playing right now';
+      track.textContent = 'Nothing Playing Right Now';
       if (headingLink) headingLink.href = spotifyProfileUrl;
       return;
     }
-    const prefix = data.playing ? 'now: ' : 'last played: ';
+    const prefix = data.playing ? 'Now: ' : 'Last Played: ';
     track.innerHTML = `${prefix}<span class="np-title">${escapeHtml(data.title)}</span> — ${escapeHtml(data.artist || '')}`;
   };
 
@@ -31,7 +31,7 @@
       const data = await res.json();
       render(data);
     } catch (err) {
-      track.textContent = 'spotify is shy right now';
+      track.textContent = 'Spotify Is Shy Right Now';
       if (headingLink) headingLink.href = spotifyProfileUrl;
     }
   };

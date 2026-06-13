@@ -24,6 +24,110 @@
     window.setInterval(updateClock, 1000);
   }
 
+  const revealCanvas = document.querySelector('.home-intro-overlay[data-overlay-src]');
+  const revealBrush = document.querySelector('.home-reveal-brush');
+  const revealArea = revealCanvas?.closest('.home-intro');
+
+  if (revealCanvas instanceof HTMLCanvasElement && revealArea) {
+    const context = revealCanvas.getContext('2d');
+    const overlayImage = new Image();
+    const brushRadius = () => window.matchMedia('(max-width: 767px)').matches ? 110 : 150;
+    let lastPoint = null;
+    let touchPainting = false;
+
+    const sizeCanvas = () => {
+      const rect = revealArea.getBoundingClientRect();
+      const scale = Math.min(window.devicePixelRatio || 1, 2);
+      revealCanvas.width = Math.max(1, Math.round(rect.width * scale));
+      revealCanvas.height = Math.max(1, Math.round(rect.height * scale));
+      revealCanvas.style.width = `${rect.width}px`;
+      revealCanvas.style.height = `${rect.height}px`;
+      context.setTransform(scale, 0, 0, scale, 0, 0);
+      lastPoint = null;
+    };
+
+    const drawOverlayCircle = (x, y) => {
+      if (!overlayImage.complete || !overlayImage.naturalWidth) return;
+
+      const width = revealArea.clientWidth;
+      const height = revealArea.clientHeight;
+      const scale = Math.max(width / overlayImage.naturalWidth, height / overlayImage.naturalHeight);
+      const drawWidth = overlayImage.naturalWidth * scale;
+      const drawHeight = overlayImage.naturalHeight * scale;
+      const drawX = (width - drawWidth) / 2;
+      const drawY = (height - drawHeight) / 2;
+
+      context.save();
+      context.beginPath();
+      context.arc(x, y, brushRadius(), 0, Math.PI * 2);
+      context.clip();
+      context.drawImage(overlayImage, drawX, drawY, drawWidth, drawHeight);
+      context.restore();
+    };
+
+    const paintTo = (x, y) => {
+      if (!lastPoint) {
+        drawOverlayCircle(x, y);
+        lastPoint = { x, y };
+        return;
+      }
+
+      const dx = x - lastPoint.x;
+      const dy = y - lastPoint.y;
+      const distance = Math.hypot(dx, dy);
+      const spacing = Math.max(12, brushRadius() * 0.16);
+      const steps = Math.max(1, Math.ceil(distance / spacing));
+
+      for (let step = 1; step <= steps; step += 1) {
+        const progress = step / steps;
+        drawOverlayCircle(lastPoint.x + dx * progress, lastPoint.y + dy * progress);
+      }
+
+      lastPoint = { x, y };
+    };
+
+    const updateBrush = (event) => {
+      if (!revealBrush) return;
+      revealBrush.style.left = `${event.clientX}px`;
+      revealBrush.style.top = `${event.clientY}px`;
+      revealBrush.classList.add('is-visible');
+    };
+
+    revealArea.addEventListener('pointerenter', updateBrush);
+    revealArea.addEventListener('pointerleave', () => {
+      revealBrush?.classList.remove('is-visible');
+      lastPoint = null;
+    });
+    revealArea.addEventListener('pointerdown', (event) => {
+      touchPainting = event.pointerType !== 'mouse';
+      updateBrush(event);
+    });
+    revealArea.addEventListener('pointerup', () => {
+      touchPainting = false;
+      lastPoint = null;
+    });
+    revealArea.addEventListener('pointercancel', () => {
+      touchPainting = false;
+      lastPoint = null;
+    });
+    revealArea.addEventListener('pointermove', (event) => {
+      updateBrush(event);
+      if (event.pointerType !== 'mouse' && !touchPainting) return;
+
+      const rect = revealArea.getBoundingClientRect();
+      paintTo(event.clientX - rect.left, event.clientY - rect.top);
+    });
+
+    overlayImage.addEventListener('load', sizeCanvas);
+    overlayImage.src = revealCanvas.dataset.overlaySrc;
+    window.addEventListener('resize', sizeCanvas);
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= revealArea.offsetHeight) {
+        revealBrush?.classList.remove('is-visible');
+      }
+    }, { passive: true });
+  }
+
   const videos = document.querySelectorAll('video');
 
   videos.forEach((video) => {
