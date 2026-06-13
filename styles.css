@@ -379,17 +379,12 @@ html {
 }
 
 .sidebar a {
-  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.55), rgba(248, 234, 35, 0.72), rgba(111, 215, 255, 0.55));
-  background-position: 0 88%;
-  background-repeat: no-repeat;
-  background-size: 0 42%;
-  transition: background-size 0.18s ease, color 0.15s ease;
+  transition: color 0.15s ease;
 }
 
 .sidebar a:hover {
   border-bottom-color: transparent;
-  color: var(--fg);
-  background-size: 100% 42%;
+  color: var(--accent);
 }
 
 .now-playing {
@@ -532,25 +527,39 @@ html {
 }
 
 .project-caption {
-  display: inline;
+  position: relative;
+  display: block;
   border-bottom-color: transparent;
   font-family: var(--font-body);
   font-size: clamp(15px, 1.25vw, 19px);
   line-height: 1.18;
   color: var(--fg);
-  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.45), rgba(248, 234, 35, 0.7), rgba(111, 215, 255, 0.45));
-  background-position: 0 88%;
-  background-repeat: no-repeat;
-  background-size: 0 38%;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  transition: background-size 0.18s ease, color 0.15s ease;
+  transition: color 0.28s ease, opacity 0.28s ease;
 }
 
-.project-caption:hover {
+.project-caption::after {
+  content: attr(data-title);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
   color: var(--fg);
-  border-bottom-color: transparent;
-  background-size: 100% 38%;
+  font-size: clamp(18px, 1.7vw, 25px);
+  line-height: 1.05;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-caption:hover {
+    color: transparent;
+    border-bottom-color: transparent;
+  }
+
+  .project-caption:hover::after {
+    opacity: 1;
+  }
 }
 
 .project-year {
@@ -777,7 +786,7 @@ html {
 .misc-learn:hover {
   color: var(--fg);
   border-bottom: none;
-  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.75), rgba(248, 234, 35, 0.68), rgba(111, 215, 255, 0.48));
+  background: rgba(255, 111, 163, 0.62);
 }
 
 .misc-bottom {
@@ -843,12 +852,8 @@ html {
 .detail-nav a:last-child { justify-self: end; }
 
 .detail-next:hover {
-  color: var(--fg);
+  color: var(--accent);
   border-bottom-color: transparent;
-  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.55), rgba(248, 234, 35, 0.72), rgba(111, 215, 255, 0.55));
-  background-position: 0 88%;
-  background-repeat: no-repeat;
-  background-size: 100% 42%;
 }
 
 .detail-nav img {
@@ -1009,12 +1014,8 @@ html {
 }
 
 .about-copy a:hover {
-  color: var(--fg);
+  color: var(--accent);
   border-bottom-color: transparent;
-  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.55), rgba(248, 234, 35, 0.72), rgba(111, 215, 255, 0.55));
-  background-position: 0 88%;
-  background-repeat: no-repeat;
-  background-size: 100% 42%;
 }
 
 .about-copy {
@@ -1044,9 +1045,8 @@ html {
 }
 
 .about-local-nav a:hover {
-  color: var(--fg);
+  color: var(--accent);
   border-bottom: none;
-  background-image: linear-gradient(90deg, rgba(255, 111, 163, 0.55), rgba(248, 234, 35, 0.72), rgba(111, 215, 255, 0.55));
 }
 
 .about-copy h1 {
@@ -1102,6 +1102,28 @@ html {
   margin: 16px auto 0;
 }
 .stage.stage-flat { min-height: auto; }
+
+@media (min-width: 768px) {
+  .compact-web-project {
+    min-height: 470px;
+  }
+
+  .compact-web-project .hero {
+    width: min(760px, 80%);
+    margin: 18px auto;
+  }
+
+  .compact-web-project .printed-proof {
+    width: min(500px, 70vw);
+    flex-basis: 420px;
+    padding: 18px 18px 14px;
+  }
+
+  .compact-web-project .project-head {
+    margin-top: -22px;
+    margin-bottom: 70px;
+  }
+}
 
 .hero {
   position: relative;
