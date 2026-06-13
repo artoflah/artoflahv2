@@ -14,55 +14,51 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/svg+xml" href="assets/logo-ladybug.svg">
 </head>
-<body>
+<body class="home-page">
 
   <!-- custom cursor (follows mouse via cursor.js) -->
   <div id="cursor" aria-hidden="true">
     <img id="cursor-ladybug" src="assets/cursors/ladybug.svg" alt="">
   </div>
 
-  <div class="layout">
+  <section class="home-intro" id="top" aria-label="portfolio introduction">
+    <img class="home-intro-bg" src="mainbackground.webp" alt="">
+    <img class="home-intro-overlay" src="backgroundoverlay.webp" alt="">
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar" id="about">
+    <div class="home-clock">
+      <img src="assets/logo-ladybug.svg" alt="@artoflah">
+      <time id="local-clock" datetime="">--:-- --</time>
+    </div>
 
-      <section class="sidebar-poster">
-        <p class="sidebar-help">
-          hello world, i am a fine artist / poet / indesign lover /
-          writer / an intellectual / a spotify DJ (R&amp;B only) /
-          an air sign / 2048 freak / entrepenuer / painter /
-          hard-drive hoarder / color lover / complainer / stuck inside
-          the body of a multidisciplinary (graphic) designer!
-        </p>
-        <figure class="sidebar-portrait">
-          <img src="assets/littleme.jpg" alt="">
-        </figure>
-        <img class="sidebar-ladybug" src="assets/logo-ladybug.svg" alt="">
-      </section>
+    <nav class="home-corner-nav" aria-label="primary navigation">
+      <a href="resume.pdf" target="_blank" rel="noopener">resume</a>
+      <a href="about.html">about</a>
+    </nav>
 
-      <section class="contact">
-        <h3 class="meta-label">reach me</h3>
+    <div class="home-intro-copy">
+      <p class="home-bio">mi'lah (mee-lah) clark, also known as artoflah, is a multidisciplinary graphic designer based between new jersey and new york. she is currently studying communication design at parsons school of design with a minor in fine arts, making work across book design, typography, print, web, ux/ui, motion, object-making, and whatever strange format the idea starts asking for.</p>
+
+      <section class="home-contact">
+        <p class="home-contact-label">reach me @</p>
         <p><a href="mailto:hello@artoflah.com">hello@artoflah.com</a></p>
         <p><a href="https://www.instagram.com/artoflah/" target="_blank" rel="noopener">instagram ↗</a></p>
+        <p><a href="https://www.are.na/milah-clark" target="_blank" rel="noopener">are.na ↗</a></p>
         <p><a href="https://www.linkedin.com/in/mi-lah-clark/" target="_blank" rel="noopener">linkedin ↗</a></p>
-        <p><a href="#" target="_blank" rel="noopener">resume ↗</a></p>
+        <p><a href="https://www.cosmos.so/" target="_blank" rel="noopener">cosmos ↗</a></p>
       </section>
 
-      <!-- spotify now playing (populated by js/spotify.js) -->
-      <section class="now-playing" id="now-playing" aria-live="polite">
-        <h3 class="meta-label"><a class="spotify-heading-link" href="https://open.spotify.com/user/1l39grb1pery2mq5jwj3hbhz5?si=714616ac8f304ea6" target="_blank" rel="noopener">currently listening to</a></h3>
-        <p class="np-track">loading…</p>
+      <section class="home-now-playing now-playing" id="now-playing" aria-live="polite">
+        <h2><a class="spotify-heading-link" href="https://open.spotify.com/user/1l39grb1pery2mq5jwj3hbhz5?si=714616ac8f304ea6" target="_blank" rel="noopener">currently listening to ↗</a></h2>
+        <p class="np-track">loading...</p>
       </section>
+    </div>
 
-    </aside>
+    <a class="home-vault-link" href="miscellaneous.html">vault</a>
+    <a class="home-scroll-cue" href="#projects-start">scroll ↓</a>
+  </section>
 
-    <!-- PROJECTS -->
-    <main class="projects" id="top">
-
-      <nav class="sticker-nav" aria-label="site navigation">
-        <a class="loose-sticker sticker-extras" href="miscellaneous.html">extras</a>
-        <a class="loose-sticker sticker-about" href="about.html">about</a>
-      </nav>
+  <div class="layout home-project-layout">
+    <main class="projects" id="projects-start">
 
       <!-- PROJECT 02 — forever yours, ladybug -->
       <article class="project" id="forever-yours" data-project="02">
@@ -76,36 +72,38 @@
 
           <!-- BELOW HERO (z: 1–3) -->
           <img style="position: absolute; left: 10%; top: 5%; transform: rotate(175deg); z-index: 1; max-width: 1000px; height: auto; user-select: none; pointer-events: none;"
-               src="assets/projects/forever-yours/fyl(drag4).png" alt="lace backdrop">
+               src="assets/projects/forever-yours/fyl(drag4).webp" alt="lace backdrop">
 
           <img class="satellite" style="--x: 7%; --y: 59%; --r: -16deg; z-index: 2; max-width: 200px;"
-               src="assets/projects/forever-yours/fyl(drag2).png" alt="cyanotype portrait">
+               src="assets/projects/forever-yours/fyl(drag2).webp" alt="cyanotype portrait">
 
           <img class="satellite" style="--x: 71%; --y: 15%; --r: 9deg; z-index: 2; max-width: 200px;"
-               src="assets/projects/forever-yours/fyl(drag6).png" alt="lace doily">
+               src="assets/projects/forever-yours/fyl(drag6).webp" alt="lace doily">
 
           <img class="satellite" style="--x: -2%; --y: 15%; --r: 10deg; z-index: 3; max-width: 365px;"
-               src="assets/projects/forever-yours/fyl(drag3).png" alt="lace doily">
+               src="assets/projects/forever-yours/fyl(drag3).webp" alt="lace doily">
 
           <!-- HERO (z: 4) -->
           <div class="hero gif-hero">
             <a class="detail-media-link" href="forever-yours.html">
-              <img src="assets/projects/forever-yours/foreveryours,ladybug.webp" alt="forever yours, ladybug book flipthrough">
+              <video autoplay muted loop playsinline preload="metadata" aria-label="forever yours, ladybug book flipthrough">
+                <source src="assets/projects/forever-yours/foreveryoursladybug-ezgif.com-gif-maker.webm" type="video/webm">
+              </video>
             </a>
           </div>
 
           <!-- ABOVE HERO (z: 5–7) -->
           <img class="satellite" style="--x: 70%; --y: 50%; --r: 6deg; z-index: 5; max-width: 365px;"
-               src="assets/projects/forever-yours/fyl(drag5).png" alt="cyanotype portrait">
+               src="assets/projects/forever-yours/fyl(drag5).webp" alt="cyanotype portrait">
 
           <img class="satellite" style="--x: 36%; --y: 5%; --r: -7deg; z-index: 6; max-width: 325px;"
-               src="assets/projects/forever-yours/fyl(drag).png" alt="cyanotype print">
+               src="assets/projects/forever-yours/fyl(drag).webp" alt="cyanotype print">
 
           <!-- motion graphic -->
           <div class="satellite satellite-motion" style="--x: 37%; --y: 67%; --r: 8deg; z-index: 7;">
-            <img class="motion-playing"
-                 src="assets/projects/forever-yours/stopmotion.gif"
-                 alt="forever yours, ladybug motion graphic">
+            <video class="motion-playing" autoplay muted loop playsinline preload="none" aria-label="forever yours, ladybug motion graphic">
+              <source src="assets/projects/forever-yours/stopmotion.webm" type="video/webm">
+            </video>
           </div>
 
         </div>
@@ -124,13 +122,15 @@
         <div class="stage">
           <div class="hero gif-hero">
             <a class="detail-media-link" href="come-home.html">
-              <img src="assets/projects/come-home/comehome.webp" alt="come home — book flipthrough">
+              <video autoplay muted loop playsinline preload="none" aria-label="come home book flipthrough">
+                <source src="assets/projects/come-home/home.webm" type="video/webm">
+              </video>
             </a>
           </div>
 
           <div class="satellite-carousel">
-            <img class="satellite" style="--x: 0%; --y: 8%; --r: -6deg; max-width: 800px;" src="assets/projects/come-home/home(drag).png" alt="riso print artifact">
-            <img class="satellite" style="--x: 31%; --y: 57%; --r: 7deg; max-width: 800px;" src="assets/projects/come-home/home(drag2).png" alt="riso print artifact">
+            <img class="satellite" style="--x: 0%; --y: 8%; --r: -6deg; max-width: 800px;" src="assets/projects/come-home/home(drag).webp" alt="riso print artifact">
+            <img class="satellite" style="--x: 31%; --y: 57%; --r: 7deg; max-width: 800px;" src="assets/projects/come-home/home(drag2).webp" alt="riso print artifact">
           </div>
         </div>
 
@@ -152,9 +152,9 @@
           </div>
 
           <div class="satellite-carousel">
-            <img class="satellite" style="--x: 72%; --y: 4%;  --r: -15deg; max-width: 200px;" src="assets/projects/scratched-into-being/sib(drag).png"  alt="graffiti fragment">
-            <img class="satellite" style="--x: 4%;  --y: 8%;  --r: 15deg;  max-width: 200px;" src="assets/projects/scratched-into-being/sib(drag2).png" alt="graffiti fragment">
-            <img class="satellite" style="--x: 20%; --y: 13%; --r: -4deg;  max-width: 250px;" src="assets/projects/scratched-into-being/sib(drag3).png" alt="acrylic cover fragment">
+            <img class="satellite" style="--x: 72%; --y: 4%;  --r: -15deg; max-width: 200px;" src="assets/projects/scratched-into-being/sib(drag).webp"  alt="graffiti fragment">
+            <img class="satellite" style="--x: 4%;  --y: 8%;  --r: 15deg;  max-width: 200px;" src="assets/projects/scratched-into-being/sib(drag2).webp" alt="graffiti fragment">
+            <img class="satellite" style="--x: 20%; --y: 13%; --r: -4deg;  max-width: 250px;" src="assets/projects/scratched-into-being/sib(drag3).webp" alt="acrylic cover fragment">
           </div>
         </div>
 
@@ -172,7 +172,7 @@
           <div class="hero gif-hero device-showcase">
             <a class="printed-proof printed-proof--site detail-media-link" href="watchtower.html">
               <div class="printed-proof-media">
-                <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/watchtower/added.png" aria-label="watchtower desktop screen recording">
+                <video autoplay muted loop playsinline preload="none" poster="assets/projects/watchtower/added.webp" aria-label="watchtower desktop screen recording">
                   <source src="assets/projects/watchtower/watchtower.mp4" type="video/mp4">
                 </video>
               </div>
@@ -196,7 +196,7 @@
 
             <a class="printed-proof printed-proof--site detail-media-link" href="foundry.html">
               <div class="printed-proof-media">
-                <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/foundry/added3.gif" aria-label="foundry website screen recording">
+                <video autoplay muted loop playsinline preload="none" poster="assets/projects/foundry/added.webp" aria-label="foundry website screen recording">
                   <source src="assets/projects/foundry/thefoundry.mp4" type="video/mp4">
                 </video>
               </div>
@@ -206,22 +206,22 @@
           </div>
 
           <div class="satellite-carousel">
-            <img class="satellite" style="--x: 4%; --y: 6%; --r: -10deg; z-index: 3; max-width: 80px;" src="assets/projects/foundry/pin1.png" alt="foundry pin" data-drag-x="-135.7275390625" data-drag-y="5.0927734375">
-            <img class="satellite" style="--x: 81%; --y: 3%; --r: 8deg; z-index: 3; max-width: 80px;" src="assets/projects/foundry/pin2.png" alt="foundry pin" data-drag-x="-130.1953125" data-drag-y="-54.775390625">
-            <img class="satellite" style="--x: 8%; --y: 48%; --r: 6deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin3.png" alt="foundry pin" data-drag-x="-134.443359375" data-drag-y="-73.1103515625">
-            <img class="satellite" style="--x: 78%; --y: 50%; --r: -6deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin4.png" alt="foundry pin" data-drag-x="188.7451171875" data-drag-y="-336.3330078125">
-            <img class="satellite" style="--x: 21%; --y: 2%; --r: 12deg; z-index: 3; max-width: 80px;" src="assets/projects/foundry/pin5.png" alt="foundry pin" data-drag-x="-88.701171875" data-drag-y="-42.9736328125">
-            <img class="satellite" style="--x: 63%; --y: 6%; --r: -13deg; z-index: 3; max-width: 80px;" src="assets/projects/foundry/pin6.png" alt="foundry pin" data-drag-x="-112.46875" data-drag-y="-51.8125">
-            <img class="satellite" style="--x: 2%; --y: 78%; --r: 9deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin7.png" alt="foundry pin" data-drag-x="1081.8359375" data-drag-y="-356.2939453125">
-            <img class="satellite" style="--x: 88%; --y: 76%; --r: -11deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin8.png" alt="foundry pin" data-drag-x="121.6943359375" data-drag-y="43.53515625">
-            <img class="satellite" style="--x: 31%; --y: 75%; --r: -5deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin9.png" alt="foundry pin" data-drag-x="600.791015625" data-drag-y="149.8876953125">
-            <img class="satellite" style="--x: 56%; --y: 76%; --r: 7deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin10.png" alt="foundry pin" data-drag-x="398.625" data-drag-y="128.25">
-            <img class="satellite" style="--x: 41%; --y: 8%; --r: -7deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin11.png" alt="foundry pin" data-drag-x="-92.1435546875" data-drag-y="-56.3037109375">
-            <img class="satellite" style="--x: 70%; --y: 31%; --r: 10deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin12.png" alt="foundry pin" data-drag-x="154.5" data-drag-y="-176.75">
-            <img class="satellite" style="--x: -13%; --y: 50%; --r: 8deg; z-index: 15; max-width: 580px;" src="assets/projects/foundry/envelope.png" alt="foundry envelope" data-drag-x="-67.646484375" data-drag-y="133.4521484375">
-            <img class="satellite" style="--x: -5%; --y: 29%; --r: -15deg; z-index: 14; max-width: 180px;" src="assets/projects/foundry/page1(foundry).png" alt="foundry page 1" data-drag-x="-82.587890625" data-drag-y="185.693359375">
-            <img class="satellite" style="--x: 5%; --y: 30%; --r: 5deg; z-index: 13; max-width: 180px;" src="assets/projects/foundry/page2(foundry).png" alt="foundry page 2" data-drag-x="-93.203125" data-drag-y="192.0849609375">
-            <img class="satellite" style="--x: 13%; --y: 35%; --r: 13deg; z-index: 12; max-width: 180px;" src="assets/projects/foundry/page3(foundry).png" alt="foundry page 3" data-drag-x="-103.046875" data-drag-y="198.1787109375">
+            <img class="satellite" style="--x: 4%; --y: 6%; --r: -10deg; z-index: 3; max-width: 80px;" src="assets/projects/foundry/pin1.webp" alt="foundry pin" data-drag-x="-135.7275390625" data-drag-y="5.0927734375">
+            <img class="satellite" style="--x: 81%; --y: 3%; --r: 8deg; z-index: 3; max-width: 80px;" src="assets/projects/foundry/pin2.webp" alt="foundry pin" data-drag-x="-130.1953125" data-drag-y="-54.775390625">
+            <img class="satellite" style="--x: 8%; --y: 48%; --r: 6deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin3.webp" alt="foundry pin" data-drag-x="-134.443359375" data-drag-y="-73.1103515625">
+            <img class="satellite" style="--x: 78%; --y: 50%; --r: -6deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin4.webp" alt="foundry pin" data-drag-x="188.7451171875" data-drag-y="-336.3330078125">
+            <img class="satellite" style="--x: 21%; --y: 2%; --r: 12deg; z-index: 3; max-width: 80px;" src="assets/projects/foundry/pin5.webp" alt="foundry pin" data-drag-x="-88.701171875" data-drag-y="-42.9736328125">
+            <img class="satellite" style="--x: 63%; --y: 6%; --r: -13deg; z-index: 3; max-width: 80px;" src="assets/projects/foundry/pin6.webp" alt="foundry pin" data-drag-x="-112.46875" data-drag-y="-51.8125">
+            <img class="satellite" style="--x: 2%; --y: 78%; --r: 9deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin7.webp" alt="foundry pin" data-drag-x="1081.8359375" data-drag-y="-356.2939453125">
+            <img class="satellite" style="--x: 88%; --y: 76%; --r: -11deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin8.webp" alt="foundry pin" data-drag-x="121.6943359375" data-drag-y="43.53515625">
+            <img class="satellite" style="--x: 31%; --y: 75%; --r: -5deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin9.webp" alt="foundry pin" data-drag-x="600.791015625" data-drag-y="149.8876953125">
+            <img class="satellite" style="--x: 56%; --y: 76%; --r: 7deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin10.webp" alt="foundry pin" data-drag-x="398.625" data-drag-y="128.25">
+            <img class="satellite" style="--x: 41%; --y: 8%; --r: -7deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin11.webp" alt="foundry pin" data-drag-x="-92.1435546875" data-drag-y="-56.3037109375">
+            <img class="satellite" style="--x: 70%; --y: 31%; --r: 10deg; z-index: 11; max-width: 80px;" src="assets/projects/foundry/pin12.webp" alt="foundry pin" data-drag-x="154.5" data-drag-y="-176.75">
+            <img class="satellite" style="--x: -13%; --y: 50%; --r: 8deg; z-index: 15; max-width: 580px;" src="assets/projects/foundry/envelope.webp" alt="foundry envelope" data-drag-x="-67.646484375" data-drag-y="133.4521484375">
+            <img class="satellite" style="--x: -5%; --y: 29%; --r: -15deg; z-index: 14; max-width: 180px;" src="assets/projects/foundry/page1(foundry).webp" alt="foundry page 1" data-drag-x="-82.587890625" data-drag-y="185.693359375">
+            <img class="satellite" style="--x: 5%; --y: 30%; --r: 5deg; z-index: 13; max-width: 180px;" src="assets/projects/foundry/page2(foundry).webp" alt="foundry page 2" data-drag-x="-93.203125" data-drag-y="192.0849609375">
+            <img class="satellite" style="--x: 13%; --y: 35%; --r: 13deg; z-index: 12; max-width: 180px;" src="assets/projects/foundry/page3(foundry).webp" alt="foundry page 3" data-drag-x="-103.046875" data-drag-y="198.1787109375">
           </div>
         </div>
 

@@ -21,13 +21,15 @@
 
   <main class="detail-layout">
     <section class="detail-images" aria-label="THE FOUNDRY™ images">
-      <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/foundry/added3.gif" aria-label="foundry website screen recording">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/foundry/added.webp" aria-label="foundry website screen recording">
         <source src="assets/projects/foundry/thefoundry.mp4" type="video/mp4">
       </video>
-      <img src="assets/projects/foundry/added.png" alt="foundry envelope">
+      <img loading="lazy" decoding="async" src="assets/projects/foundry/added.webp" alt="foundry envelope">
       <div class="detail-image-row">
-        <img src="assets/projects/foundry/added2.png" alt="foundry page 1">
-        <img src="assets/projects/foundry/added3.gif" alt="foundry page 2">
+        <img loading="lazy" decoding="async" src="assets/projects/foundry/added2_1.webp" alt="foundry page 1">
+        <video autoplay muted loop playsinline preload="none" aria-label="foundry page 2">
+          <source src="assets/projects/foundry/added3.webm" type="video/webm">
+        </video>
       </div>
     </section>
 
@@ -45,6 +47,7 @@
     </aside>
   </main>
 
+  <script src="js/main.js" defer></script>
   <script src="js/cursor.js" defer></script>
 </body>
 </html>

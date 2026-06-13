@@ -21,12 +21,16 @@
 
   <main class="detail-layout">
     <section class="detail-images" aria-label="come home images">
-      <img src="assets/projects/come-home/comehome.webp" alt="come home book flipthrough">
-      <img src="assets/projects/come-home/added.png" alt="come home book image">
-      <img src="assets/projects/come-home/added2.png" alt="come home book image">
+      <video autoplay muted loop playsinline preload="metadata" aria-label="come home book flipthrough">
+        <source src="assets/projects/come-home/home.webm" type="video/webm">
+      </video>
+      <img loading="lazy" decoding="async" src="assets/projects/come-home/added.webp" alt="come home book image">
+      <img loading="lazy" decoding="async" src="assets/projects/come-home/added2.webp" alt="come home book image">
       <div class="detail-image-row">
-        <img src="assets/projects/come-home/extra.gif" alt="riso print artifact">
-        <img src="assets/projects/come-home/added3.png" alt="come home book image">
+        <video autoplay muted loop playsinline preload="none" aria-label="riso print artifact">
+          <source src="assets/projects/come-home/extra.webm" type="video/webm">
+        </video>
+        <img loading="lazy" decoding="async" src="assets/projects/come-home/added3.webp" alt="come home book image">
       </div>
     </section>
 
@@ -43,6 +47,7 @@
     </aside>
   </main>
 
+  <script src="js/main.js" defer></script>
   <script src="js/cursor.js" defer></script>
 </body>
 </html>
