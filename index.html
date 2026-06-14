@@ -24,7 +24,6 @@
   <section class="home-intro" id="top" aria-label="portfolio introduction">
     <img class="home-intro-bg" src="mainbackground.webp" alt="">
     <canvas class="home-intro-overlay" data-overlay-src="backgroundoverlay.webp" aria-hidden="true"></canvas>
-    <div class="home-reveal-brush" aria-hidden="true"></div>
 
     <div class="home-clock">
       <img src="assets/logo-ladybug.svg" alt="@artoflah">
@@ -37,7 +36,10 @@
     </nav>
 
     <div class="home-intro-copy">
-      <p class="home-bio">Mi'Lah (mee-lah) Clark, also known as Artoflah, is a multidisciplinary graphic designer based between New Jersey and New York. She is currently studying Communication Design at Parsons School of Design with a minor in Fine Arts, making work across book design, typography, print, web, UX/UI, motion, object-making, and whatever strange format the idea starts asking for.</p>
+      <div class="home-bio">
+        <p>Mi’Lah “mee-lah” Clark, also known as Artoflah, is a multidisciplinary graphic designer working between New Jersey and New York. She is currently studying Communication Design at Parsons School of Design with a minor in Fine Arts, creating work across book design, typography, print, web, UX/UI, motion, object-making, and whatever strange format the idea starts asking for.</p>
+        <p>Her work is driven by color, tiny details, craft, and experiments that sometimes begin with no faith they’ll work. She likes building playful, thoughtful design systems that feel expressive, handmade, and a little unexpected.</p>
+      </div>
 
       <section class="home-contact">
         <p class="home-contact-label">Reach Me @</p>
@@ -54,7 +56,7 @@
     </div>
 
     <a class="home-vault-link" href="miscellaneous.html">Vault</a>
-    <a class="home-scroll-cue" href="#projects-start">Scroll ↓</a>
+    <a class="home-scroll-cue" href="#projects-start" data-reveal-cue>Swipe to Reveal</a>
   </section>
 
   <div class="layout home-project-layout">
@@ -86,9 +88,7 @@
           <!-- HERO (z: 4) -->
           <div class="hero gif-hero">
             <a class="detail-media-link" href="forever-yours.html">
-              <video autoplay muted loop playsinline preload="metadata" aria-label="forever yours, ladybug book flipthrough">
-                <source src="assets/projects/forever-yours/foreveryours,ladybug.webp" type="video/webm">
-              </video>
+              <img src="assets/projects/forever-yours/foreveryours,ladybug.webp" alt="forever yours, ladybug book flipthrough">
             </a>
           </div>
 
@@ -122,9 +122,7 @@
         <div class="stage">
           <div class="hero gif-hero">
             <a class="detail-media-link" href="come-home.html">
-              <video autoplay muted loop playsinline preload="none" aria-label="come home book flipthrough">
-                <source src="assets/projects/come-home/comehome.webp" type="video/webm">
-              </video>
+              <img src="assets/projects/come-home/comehome.webp" alt="come home book flipthrough">
             </a>
           </div>
 
@@ -237,6 +235,11 @@
   <div id="modal-overlay" role="dialog" aria-modal="true" aria-label="hero image" hidden>
     <img id="modal-img" src="" alt="">
   </div>
+
+  <footer class="site-copyright">
+    <p>©2026 Mi'Lah M. Clark</p>
+    <p>All Rights Reserved.</p>
+  </footer>
 
   <!-- scripts -->
   <script src="js/drag.js" defer></script>

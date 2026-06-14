@@ -25,15 +25,16 @@
   }
 
   const revealCanvas = document.querySelector('.home-intro-overlay[data-overlay-src]');
-  const revealBrush = document.querySelector('.home-reveal-brush');
   const revealArea = revealCanvas?.closest('.home-intro');
+  const revealCue = document.querySelector('[data-reveal-cue]');
 
   if (revealCanvas instanceof HTMLCanvasElement && revealArea) {
     const context = revealCanvas.getContext('2d');
     const overlayImage = new Image();
-    const brushRadius = () => window.matchMedia('(max-width: 767px)').matches ? 110 : 150;
+    const brushRadius = () => window.matchMedia('(max-width: 767px)').matches ? 145 : 205;
     let lastPoint = null;
     let touchPainting = false;
+    let hasRevealed = false;
 
     const sizeCanvas = () => {
       const rect = revealArea.getBoundingClientRect();
@@ -46,7 +47,7 @@
       lastPoint = null;
     };
 
-    const drawOverlayCircle = (x, y) => {
+    const drawOverlayMist = (x, y) => {
       if (!overlayImage.complete || !overlayImage.naturalWidth) return;
 
       const width = revealArea.clientWidth;
@@ -54,20 +55,32 @@
       const scale = Math.max(width / overlayImage.naturalWidth, height / overlayImage.naturalHeight);
       const drawWidth = overlayImage.naturalWidth * scale;
       const drawHeight = overlayImage.naturalHeight * scale;
-      const drawX = (width - drawWidth) / 2;
+      const drawX = (width - drawWidth) / 2 + width * 0.035;
       const drawY = (height - drawHeight) / 2;
+      const radius = brushRadius();
+      const layers = [
+        { size: 1, alpha: 0.035 },
+        { size: 0.88, alpha: 0.055 },
+        { size: 0.74, alpha: 0.085 },
+        { size: 0.6, alpha: 0.13 },
+        { size: 0.46, alpha: 0.2 },
+        { size: 0.32, alpha: 0.32 }
+      ];
 
-      context.save();
-      context.beginPath();
-      context.arc(x, y, brushRadius(), 0, Math.PI * 2);
-      context.clip();
-      context.drawImage(overlayImage, drawX, drawY, drawWidth, drawHeight);
-      context.restore();
+      layers.forEach((layer) => {
+        context.save();
+        context.globalAlpha = layer.alpha;
+        context.beginPath();
+        context.arc(x, y, radius * layer.size, 0, Math.PI * 2);
+        context.clip();
+        context.drawImage(overlayImage, drawX, drawY, drawWidth, drawHeight);
+        context.restore();
+      });
     };
 
     const paintTo = (x, y) => {
       if (!lastPoint) {
-        drawOverlayCircle(x, y);
+        drawOverlayMist(x, y);
         lastPoint = { x, y };
         return;
       }
@@ -75,32 +88,28 @@
       const dx = x - lastPoint.x;
       const dy = y - lastPoint.y;
       const distance = Math.hypot(dx, dy);
-      const spacing = Math.max(12, brushRadius() * 0.16);
+      const spacing = Math.max(10, brushRadius() * 0.1);
       const steps = Math.max(1, Math.ceil(distance / spacing));
 
       for (let step = 1; step <= steps; step += 1) {
         const progress = step / steps;
-        drawOverlayCircle(lastPoint.x + dx * progress, lastPoint.y + dy * progress);
+        drawOverlayMist(lastPoint.x + dx * progress, lastPoint.y + dy * progress);
       }
 
       lastPoint = { x, y };
+
+      if (!hasRevealed) {
+        hasRevealed = true;
+        revealCue?.classList.add('is-revealed');
+        if (revealCue) revealCue.textContent = 'Scroll ↓';
+      }
     };
 
-    const updateBrush = (event) => {
-      if (!revealBrush) return;
-      revealBrush.style.left = `${event.clientX}px`;
-      revealBrush.style.top = `${event.clientY}px`;
-      revealBrush.classList.add('is-visible');
-    };
-
-    revealArea.addEventListener('pointerenter', updateBrush);
     revealArea.addEventListener('pointerleave', () => {
-      revealBrush?.classList.remove('is-visible');
       lastPoint = null;
     });
     revealArea.addEventListener('pointerdown', (event) => {
       touchPainting = event.pointerType !== 'mouse';
-      updateBrush(event);
     });
     revealArea.addEventListener('pointerup', () => {
       touchPainting = false;
@@ -111,7 +120,6 @@
       lastPoint = null;
     });
     revealArea.addEventListener('pointermove', (event) => {
-      updateBrush(event);
       if (event.pointerType !== 'mouse' && !touchPainting) return;
 
       const rect = revealArea.getBoundingClientRect();
@@ -121,20 +129,26 @@
     overlayImage.addEventListener('load', sizeCanvas);
     overlayImage.src = revealCanvas.dataset.overlaySrc;
     window.addEventListener('resize', sizeCanvas);
-    window.addEventListener('scroll', () => {
-      if (window.scrollY >= revealArea.offsetHeight) {
-        revealBrush?.classList.remove('is-visible');
-      }
-    }, { passive: true });
   }
 
   const videos = document.querySelectorAll('video');
 
   videos.forEach((video) => {
+    video.removeAttribute('controls');
     video.controls = false;
+    video.autoplay = true;
     video.muted = true;
+    video.defaultMuted = true;
     video.loop = true;
     video.playsInline = true;
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('loop', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.setAttribute('controlslist', 'nodownload noplaybackrate noremoteplayback');
+    video.disablePictureInPicture = true;
+    video.play().catch(() => {});
   });
 
   if ('IntersectionObserver' in window) {

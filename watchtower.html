@@ -19,14 +19,19 @@
 
   <main class="detail-layout">
     <section class="detail-images" aria-label="watchtower images">
+      <video autoplay muted loop playsinline preload="metadata" aria-label="Watchtower title animation">
+        <source src="assets/projects/watchtower/titlewatchtower.webm" type="video/webm">
+      </video>
+      <img loading="lazy" decoding="async" src="assets/projects/watchtower/added.webp" alt="Watchtower interface">
       <video autoplay muted loop playsinline preload="metadata" poster="assets/projects/watchtower/added.webp">
         <source src="assets/projects/watchtower/watchtower.mp4" type="video/mp4">
       </video>
-      <video autoplay muted loop playsinline preload="none" poster="assets/projects/watchtower/added.webp" aria-label="watchtower mobile screen recording">
-        <source src="assets/projects/watchtower/mobile.webm" type="video/webm">
-      </video>
-      <img loading="lazy" decoding="async" src="assets/projects/watchtower/added.webp" alt="watchtower interface">
-      <img loading="lazy" decoding="async" src="assets/projects/watchtower/added2.webp" alt="watchtower interface">
+      <div class="detail-image-row">
+        <video autoplay muted loop playsinline preload="none" poster="assets/projects/watchtower/added2.webp" aria-label="Watchtower mobile screen recording">
+          <source src="assets/projects/watchtower/watchtowermobile.webm" type="video/webm">
+        </video>
+        <img loading="lazy" decoding="async" src="assets/projects/watchtower/added2.webp" alt="Watchtower mobile interface">
+      </div>
     </section>
 
     <aside class="detail-copy">
@@ -36,7 +41,6 @@
       <dl class="detail-facts">
         <div><dt>What</dt><dd>Watchtower</dd></div>
         <div><dt>When</dt><dd>2024</dd></div>
-        <div><dt>For Who</dt><dd>Parsons Core 3 Studio — Downtown Manhattan Neighborhood</dd></div>
         <div><dt>How</dt><dd>UX/UI, Web App, HTML/CSS/JS, Civic Design</dd></div>
         <div><dt>Visit Site</dt><dd><a href="http://watchtower-murex.vercel.app/" target="_blank" rel="noopener">watchtower-murex.vercel.app ↗</a></dd></div>
         <div><dt>Description</dt><dd><p>Watchtower is a civic utility-tracking app designed for a downtown Manhattan neighborhood dealing with frequent power and water outages. The project looks at what happens when the infrastructure people rely on becomes unreliable, and the official systems for communication are too slow, too vague, or too hard to access in the moment.</p><p>The app was built around three specific neighbors: a freelance mom, an elderly building super, and a punk rocker renovating his apartment. Each person has a different relationship to urgency, technology, language, and repair, but they share the same problem. By the time they know what is happening, it has usually already affected their day, their work, their building, or their safety.</p><p>Watchtower uses a color-coded real-time map, multi-channel reporting, language access, picture-based icons, and a resource-sharing layer. The goal was not to make an app that looks perfect in a presentation. The goal was to design for the messy conditions of an outage: low battery, bad wifi, stress, confusion, and people who need information faster than they need decoration.</p><p>The interface organizes reports around clarity and speed. Users can check what utilities are affected, see how close an issue is to them, report what they are experiencing, and find nearby resources. The visual system is direct because the situation is direct. Color, icons, and repetition do the heavy lifting so the user does not have to decode too much while something is actively going wrong.</p><p>Watchtower is a design proposal for care at the neighborhood scale. It treats information as infrastructure too, something that can either fail people or help them coordinate with each other when bigger systems are not moving fast enough.</p></dd></div>
@@ -44,6 +48,11 @@
       <a class="detail-back" href="index.html#watchtower">← Back</a>
     </aside>
   </main>
+
+  <footer class="site-copyright">
+    <p>©2026 Mi'Lah M. Clark</p>
+    <p>All Rights Reserved.</p>
+  </footer>
 
   <script src="js/main.js" defer></script>
   <script src="js/cursor.js" defer></script>
