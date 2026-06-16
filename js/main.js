@@ -132,7 +132,7 @@
     window.addEventListener('resize', sizeCanvas);
   }
 
-  const firstStage = document.getElementById('forever-yours-stage');
+  const firstStage = document.getElementById('forever-yours');
 
   if (revealArea && firstStage) {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
