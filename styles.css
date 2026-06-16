@@ -168,7 +168,7 @@ html {
 .home-drag-hint {
   position: fixed;
   left: var(--home-edge);
-  top: clamp(350px, 43vh, 460px);
+  top: clamp(480px, 55vh, 640px);
   z-index: 52;
   width: clamp(210px, 17vw, 276px);
   color: var(--accent);
@@ -816,6 +816,7 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   gap: 0;
+  min-width: 0;
   min-height: 100%;
   overflow: hidden;
   scroll-snap-align: start;
@@ -827,10 +828,11 @@ html {
   align-items: stretch;
   justify-content: flex-start;
   gap: 0;
+  width: 100%;
   min-width: 0;
-  max-height: 58vh;
+  max-height: min(66vh, 620px);
   overflow-y: auto;
-  overflow-x: visible;
+  overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
   padding: 0;
@@ -843,18 +845,34 @@ html {
   display: block;
   width: 100%;
   max-width: 100%;
-  max-height: 24vh;
-  object-fit: contain;
+  height: clamp(170px, 21vh, 220px);
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+.misc-media video {
+  pointer-events: none;
+}
+
+.misc-media video::-webkit-media-controls,
+.misc-media video::-webkit-media-controls-enclosure,
+.misc-media video::-webkit-media-controls-panel,
+.misc-media video::-webkit-media-controls-overlay-play-button,
+.misc-media video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
 
 .misc-media img:nth-child(2n) {
-  max-height: 20vh;
+  max-height: none;
   margin-left: 0;
 }
 
 .misc-media img:nth-child(3n),
 .misc-media video:nth-child(3n) {
-  max-height: 18vh;
+  max-height: none;
   margin-left: 0;
 }
 
@@ -1278,12 +1296,12 @@ html {
 
 @media (min-width: 768px) {
   .compact-web-project {
-    min-height: 470px;
+    min-height: 600px;
   }
 
   .compact-web-project .hero {
     width: min(760px, 80%);
-    margin: 18px auto;
+    margin: 40px auto;
   }
 
   .compact-web-project .laptop-mockup {
@@ -1294,7 +1312,7 @@ html {
 
   .compact-web-project .project-head {
     margin-top: 28px;
-    margin-bottom: 70px;
+    margin-bottom: 104px;
   }
 }
 
@@ -2011,16 +2029,18 @@ video::-moz-media-controls-play-button {
   }
   .misc-media {
     margin-bottom: 0;
-    min-height: 44vh;
-    max-height: 54vh;
+    min-height: 0;
+    max-height: 68vh;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
   .misc-media::-webkit-scrollbar { display: none; }
   .misc-media img,
   .misc-media video {
-    max-width: 72vw;
-    max-height: 30vh;
+    width: 100%;
+    max-width: 100%;
+    height: clamp(180px, 28vh, 260px);
+    max-height: none;
   }
   .misc-entry h1 {
     font-size: 22px;

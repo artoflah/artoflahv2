@@ -64,7 +64,7 @@
       setState('clock');
     } else if (target.closest('.satellite, .draggable-art')) {
       setState('grab');
-    } else if (target.closest('.gif-hero, .satellite-motion')) {
+    } else if (target.closest('.detail-page .gif-hero')) {
       setState('play');
     } else {
       setState(null);
@@ -83,7 +83,7 @@
     const hovered = document.elementFromPoint(targetX, targetY);
     if (hovered && hovered.closest('.home-clock')) setState('clock');
     else if (hovered && hovered.closest('.satellite, .draggable-art')) setState('grab');
-    else if (hovered && hovered.closest('.gif-hero, .satellite-motion')) setState('play');
+    else if (hovered && hovered.closest('.detail-page .gif-hero')) setState('play');
     else setState(null);
   });
 

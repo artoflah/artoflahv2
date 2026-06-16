@@ -132,68 +132,49 @@
     window.addEventListener('resize', sizeCanvas);
   }
 
-  const firstStage = document.getElementById('forever-yours');
-
-  if (revealArea && firstStage) {
+  if (revealArea && dragHint) {
+    const firstProject = document.getElementById('forever-yours');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let isSnappingToProjects = false;
-    let touchStartY = null;
-    let scrollSnapFrame = null;
+    let lastScrollY = window.scrollY;
+    let hasAutoJumped = false;
 
-    const firstStageTop = () => firstStage.getBoundingClientRect().top + window.scrollY;
-    const inIntroRange = () => window.scrollY < firstStageTop() - 8;
+    const revealBottom = () => revealArea.getBoundingClientRect().bottom + window.scrollY;
 
-    const snapToFirstStage = () => {
-      if (isSnappingToProjects || !inIntroRange()) return;
-      isSnappingToProjects = true;
-      dragHint?.classList.add('is-visible');
-      firstStage.scrollIntoView({
+    const toggleDragHint = () => {
+      dragHint.classList.toggle('is-visible', window.scrollY >= revealBottom() - 80);
+    };
+
+    const jumpToProjects = () => {
+      if (!firstProject) return;
+      hasAutoJumped = true;
+      dragHint.classList.add('is-visible');
+      firstProject.scrollIntoView({
         block: 'start',
         behavior: prefersReducedMotion ? 'auto' : 'smooth'
       });
-      window.setTimeout(() => {
-        isSnappingToProjects = false;
-      }, prefersReducedMotion ? 50 : 850);
     };
 
     revealCue?.addEventListener('click', (event) => {
       event.preventDefault();
-      snapToFirstStage();
+      jumpToProjects();
     });
 
-    window.addEventListener('wheel', (event) => {
-      if (event.deltaY <= 0 || !inIntroRange()) return;
-      event.preventDefault();
-      snapToFirstStage();
-    }, { passive: false });
+    toggleDragHint();
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      const scrollingDown = currentScrollY > lastScrollY;
+      const triggerY = revealBottom() * 0.42;
 
-    window.addEventListener('touchstart', (event) => {
-      if (!inIntroRange()) return;
-      touchStartY = event.touches[0]?.clientY ?? null;
-    }, { passive: true });
+      toggleDragHint();
 
-    window.addEventListener('touchend', (event) => {
-      if (touchStartY === null || !inIntroRange()) {
-        touchStartY = null;
-        return;
+      if (currentScrollY < 12) hasAutoJumped = false;
+      if (scrollingDown && !hasAutoJumped && currentScrollY > triggerY && currentScrollY < revealBottom() - 24) {
+        jumpToProjects();
       }
 
-      const touchEndY = event.changedTouches[0]?.clientY ?? touchStartY;
-      if (touchStartY - touchEndY > 42) snapToFirstStage();
-      touchStartY = null;
+      lastScrollY = currentScrollY;
     }, { passive: true });
-
-    window.addEventListener('scroll', () => {
-      dragHint?.classList.toggle('is-visible', window.scrollY >= firstStageTop() - 32);
-
-      if (isSnappingToProjects || !inIntroRange() || window.scrollY <= 8) return;
-      if (scrollSnapFrame !== null) return;
-
-      scrollSnapFrame = window.requestAnimationFrame(() => {
-        scrollSnapFrame = null;
-        snapToFirstStage();
-      });
-    }, { passive: true });
+    window.addEventListener('resize', toggleDragHint);
   }
 
   const videos = document.querySelectorAll('video');
