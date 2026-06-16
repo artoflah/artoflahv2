@@ -50,7 +50,7 @@
 
   // state swaps based on what's under the cursor
   const setState = (state) => {
-    cursor.classList.remove('state-grab', 'state-grabbing', 'state-play', 'state-clock');
+    cursor.classList.remove('state-grab', 'state-grabbing', 'state-clock');
     if (state) cursor.classList.add(`state-${state}`);
     if (state === 'clock') cursorMessage.textContent = getClockMessage();
   };
@@ -64,8 +64,6 @@
       setState('clock');
     } else if (target.closest('.satellite, .draggable-art')) {
       setState('grab');
-    } else if (target.closest('.detail-page .gif-hero')) {
-      setState('play');
     } else {
       setState(null);
     }
@@ -83,7 +81,6 @@
     const hovered = document.elementFromPoint(targetX, targetY);
     if (hovered && hovered.closest('.home-clock')) setState('clock');
     else if (hovered && hovered.closest('.satellite, .draggable-art')) setState('grab');
-    else if (hovered && hovered.closest('.detail-page .gif-hero')) setState('play');
     else setState(null);
   });
 
