@@ -28,8 +28,9 @@
   const revealArea = revealCanvas?.closest('.home-intro');
   const revealCue = document.querySelector('[data-reveal-cue]');
   const dragHint = document.querySelector('[data-drag-hint]');
+  const isMobileInteraction = window.matchMedia('(max-width: 767px), (hover: none), (pointer: coarse)').matches;
 
-  if (revealCanvas instanceof HTMLCanvasElement && revealArea) {
+  if (revealCanvas instanceof HTMLCanvasElement && revealArea && !isMobileInteraction) {
     const context = revealCanvas.getContext('2d');
     const overlayImage = new Image();
     const brushRadius = () => window.matchMedia('(max-width: 767px)').matches ? 145 : 205;
@@ -53,11 +54,14 @@
 
       const width = revealArea.clientWidth;
       const height = revealArea.clientHeight;
-      const scale = Math.max(width / overlayImage.naturalWidth, height / overlayImage.naturalHeight);
+      const isMobileReveal = window.matchMedia('(max-width: 767px)').matches;
+      const scale = isMobileReveal
+        ? (width * 1.65) / overlayImage.naturalWidth
+        : Math.max(width / overlayImage.naturalWidth, height / overlayImage.naturalHeight);
       const drawWidth = overlayImage.naturalWidth * scale;
       const drawHeight = overlayImage.naturalHeight * scale;
-      const drawX = (width - drawWidth) / 2 + width * 0.035;
-      const drawY = (height - drawHeight) / 2;
+      const drawX = (width - drawWidth) / 2 + (isMobileReveal ? 0 : width * 0.035);
+      const drawY = isMobileReveal ? height * 0.56 : (height - drawHeight) / 2;
       const radius = brushRadius();
       const layers = [
         { size: 1, alpha: 0.035 },
@@ -132,7 +136,7 @@
     window.addEventListener('resize', sizeCanvas);
   }
 
-  if (revealArea && dragHint) {
+  if (revealArea && dragHint && !isMobileInteraction) {
     const firstProject = document.getElementById('forever-yours');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let lastScrollY = window.scrollY;
@@ -175,6 +179,18 @@
       lastScrollY = currentScrollY;
     }, { passive: true });
     window.addEventListener('resize', toggleDragHint);
+  }
+
+  if (isMobileInteraction) {
+    document.querySelectorAll('.home-page .project').forEach((project) => {
+      project.addEventListener('click', (event) => {
+        if (event.target instanceof Element && event.target.closest('a')) return;
+        const detailLink = project?.querySelector('.project-caption[href]');
+        if (detailLink instanceof HTMLAnchorElement) {
+          window.location.href = detailLink.href;
+        }
+      });
+    });
   }
 
   const videos = document.querySelectorAll('video');
