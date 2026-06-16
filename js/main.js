@@ -27,6 +27,7 @@
   const revealCanvas = document.querySelector('.home-intro-overlay[data-overlay-src]');
   const revealArea = revealCanvas?.closest('.home-intro');
   const revealCue = document.querySelector('[data-reveal-cue]');
+  const dragHint = document.querySelector('[data-drag-hint]');
 
   if (revealCanvas instanceof HTMLCanvasElement && revealArea) {
     const context = revealCanvas.getContext('2d');
@@ -131,6 +132,70 @@
     window.addEventListener('resize', sizeCanvas);
   }
 
+  const firstStage = document.getElementById('forever-yours-stage');
+
+  if (revealArea && firstStage) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let isSnappingToProjects = false;
+    let touchStartY = null;
+    let scrollSnapFrame = null;
+
+    const firstStageTop = () => firstStage.getBoundingClientRect().top + window.scrollY;
+    const inIntroRange = () => window.scrollY < firstStageTop() - 8;
+
+    const snapToFirstStage = () => {
+      if (isSnappingToProjects || !inIntroRange()) return;
+      isSnappingToProjects = true;
+      dragHint?.classList.add('is-visible');
+      firstStage.scrollIntoView({
+        block: 'start',
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+      window.setTimeout(() => {
+        isSnappingToProjects = false;
+      }, prefersReducedMotion ? 50 : 850);
+    };
+
+    revealCue?.addEventListener('click', (event) => {
+      event.preventDefault();
+      snapToFirstStage();
+    });
+
+    window.addEventListener('wheel', (event) => {
+      if (event.deltaY <= 0 || !inIntroRange()) return;
+      event.preventDefault();
+      snapToFirstStage();
+    }, { passive: false });
+
+    window.addEventListener('touchstart', (event) => {
+      if (!inIntroRange()) return;
+      touchStartY = event.touches[0]?.clientY ?? null;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (event) => {
+      if (touchStartY === null || !inIntroRange()) {
+        touchStartY = null;
+        return;
+      }
+
+      const touchEndY = event.changedTouches[0]?.clientY ?? touchStartY;
+      if (touchStartY - touchEndY > 42) snapToFirstStage();
+      touchStartY = null;
+    }, { passive: true });
+
+    window.addEventListener('scroll', () => {
+      dragHint?.classList.toggle('is-visible', window.scrollY >= firstStageTop() - 32);
+
+      if (isSnappingToProjects || !inIntroRange() || window.scrollY <= 8) return;
+      if (scrollSnapFrame !== null) return;
+
+      scrollSnapFrame = window.requestAnimationFrame(() => {
+        scrollSnapFrame = null;
+        snapToFirstStage();
+      });
+    }, { passive: true });
+  }
+
   const videos = document.querySelectorAll('video');
 
   videos.forEach((video) => {
@@ -147,7 +212,10 @@
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
     video.setAttribute('controlslist', 'nodownload noplaybackrate noremoteplayback');
+    video.setAttribute('disablepictureinpicture', '');
+    video.setAttribute('disableremoteplayback', '');
     video.disablePictureInPicture = true;
+    video.disableRemotePlayback = true;
     video.play().catch(() => {});
   });
 

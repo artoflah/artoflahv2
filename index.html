@@ -22,7 +22,6 @@
   </div>
 
   <section class="home-intro" id="top" aria-label="portfolio introduction">
-    <img class="home-intro-bg" src="mainbackground.webp" alt="">
     <canvas class="home-intro-overlay" data-overlay-src="backgroundoverlay.webp" aria-hidden="true"></canvas>
 
     <div class="home-clock">
@@ -37,9 +36,10 @@
 
     <div class="home-intro-copy">
       <div class="home-bio">
-        <p>Mi’Lah “mee-lah” Clark, also known as Artoflah, is a multidisciplinary graphic designer working between New Jersey and New York. She is currently studying Communication Design at Parsons School of Design with a minor in Fine Arts, creating work across book design, typography, print, web, UX/UI, motion, object-making, and whatever strange format the idea starts asking for.</p>
-        <p>Her work is driven by color, tiny details, craft, and experiments that sometimes begin with no faith they’ll work. She likes building playful, thoughtful design systems that feel expressive, handmade, and a little unexpected.</p>
+        <p>Mi’Lah “mee-lah” Clark, also known as Artoflah, is a multidisciplinary graphic designer working between New Jersey and New York. She is currently studying Communication Design at Parsons School of Design with a minor in Fine Arts, creating work across book design, typography, print, web, UX/UI, motion, object-making, and whatever strange format the idea starts asking for. Her work is driven by color, tiny details, craft, and experiments that sometimes begin with no faith they’ll work. She likes building playful, thoughtful design systems that feel expressive, handmade, and a little unexpected.</p>
       </div>
+
+      <p class="home-drag-hint" data-drag-hint>Drag the little pieces around :)</p>
 
       <section class="home-contact">
         <p class="home-contact-label">Reach Me @</p>
@@ -55,8 +55,8 @@
       </section>
     </div>
 
-    <a class="home-vault-link" href="miscellaneous.html">Vault</a>
-    <a class="home-scroll-cue" href="#projects-start" data-reveal-cue>Swipe to Reveal</a>
+    <a class="home-vault-link" href="miscellaneous.html">Random Sh*t</a>
+    <a class="home-scroll-cue" href="#forever-yours-stage" data-reveal-cue>Swipe to Reveal</a>
   </section>
 
   <div class="layout home-project-layout">
@@ -86,10 +86,10 @@
                src="assets/projects/forever-yours/fyl(drag3).webp" alt="lace doily">
 
           <!-- HERO (z: 4) -->
-          <div class="hero gif-hero">
-            <a class="detail-media-link" href="forever-yours.html">
+          <div class="hero gif-hero" id="forever-yours-stage">
+            <div class="detail-media-link">
               <img src="assets/projects/forever-yours/foreveryours,ladybug.webp" alt="forever yours, ladybug book flipthrough">
-            </a>
+            </div>
           </div>
 
           <!-- ABOVE HERO (z: 5–7) -->
@@ -101,7 +101,7 @@
 
           <!-- motion graphic -->
           <div class="satellite satellite-motion" style="--x: 37%; --y: 67%; --r: 8deg; z-index: 7;">
-            <video class="motion-playing" autoplay muted loop playsinline preload="none" aria-label="forever yours, ladybug motion graphic">
+            <video class="motion-playing" autoplay muted loop playsinline preload="none" aria-label="forever yours, ladybug motion graphic" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback">
               <source src="assets/projects/forever-yours/stopmotion.webm" type="video/webm">
             </video>
           </div>
@@ -121,9 +121,9 @@
 
         <div class="stage">
           <div class="hero gif-hero">
-            <a class="detail-media-link" href="come-home.html">
+            <div class="detail-media-link">
               <img src="assets/projects/come-home/comehome.webp" alt="come home book flipthrough">
-            </a>
+            </div>
           </div>
 
           <div class="satellite-carousel">
@@ -144,9 +144,9 @@
 
         <div class="stage">
           <div class="hero gif-hero">
-            <a class="detail-media-link" href="scratched-into-being.html">
+            <div class="detail-media-link">
               <img src="assets/projects/scratched-into-being/scratchedintobeing.webp" alt="scratched into being book flipthrough">
-            </a>
+            </div>
           </div>
 
           <div class="satellite-carousel">
@@ -168,16 +168,16 @@
 
         <div class="stage stage-flat">
           <div class="hero gif-hero device-showcase">
-            <a class="laptop-mockup detail-media-link" href="watchtower.html" aria-label="watchtower desktop screen recording">
+            <div class="laptop-mockup detail-media-link" aria-label="watchtower desktop screen recording">
               <div class="laptop-mockup-bar">
                 <span></span><span></span><span></span>
               </div>
               <div class="laptop-mockup-screen">
-                <video autoplay muted loop playsinline preload="none" poster="assets/projects/watchtower/added.webp" aria-label="watchtower desktop screen recording">
+                <video autoplay muted loop playsinline preload="none" aria-label="watchtower desktop screen recording" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback">
                   <source src="assets/projects/watchtower/watchtower.mp4" type="video/mp4">
                 </video>
               </div>
-            </a>
+            </div>
           </div>
         </div>
 
@@ -193,16 +193,16 @@
 
         <div class="stage stage-flat">
           <div class="hero gif-hero device-showcase">
-            <a class="laptop-mockup detail-media-link" href="foundry.html" aria-label="foundry website screen recording">
+            <div class="laptop-mockup detail-media-link" aria-label="foundry website screen recording">
               <div class="laptop-mockup-bar">
                 <span></span><span></span><span></span>
               </div>
               <div class="laptop-mockup-screen">
-                <video autoplay muted loop playsinline preload="none" poster="assets/projects/foundry/added.webp" aria-label="foundry website screen recording">
+                <video autoplay muted loop playsinline preload="none" aria-label="foundry website screen recording" disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback">
                   <source src="assets/projects/foundry/thefoundry.mp4" type="video/mp4">
                 </video>
               </div>
-            </a>
+            </div>
           </div>
 
           <div class="satellite-carousel">
