@@ -2079,7 +2079,7 @@ video::-moz-media-controls-play-button {
     max-width: none;
     height: 300px;
     min-height: 300px;
-    margin-bottom: calc(52vw - 300px);
+    margin-bottom: calc(60vw - 300px);
     transform: scale(calc((100vw - 24px) / 1100px));
     transform-origin: top center;
   }
@@ -2088,6 +2088,47 @@ video::-moz-media-controls-play-button {
     width: 500px;
     flex-basis: 420px;
     padding: 12px 12px 10px;
+  }
+
+  #foundry .satellite[src*="pin"] {
+    max-width: 80px !important;
+  }
+
+  #foundry .satellite[src*="pin1"] { left: 2% !important; top: 4% !important; }
+  #foundry .satellite[src*="pin2"] { left: 82% !important; top: 1% !important; }
+  #foundry .satellite[src*="pin3"] { left: 4% !important; top: 43% !important; }
+  #foundry .satellite[src*="pin4"] { left: 84% !important; top: 43% !important; }
+  #foundry .satellite[src*="pin5"] { left: 18% !important; top: 1% !important; }
+  #foundry .satellite[src*="pin6"] { left: 63% !important; top: 4% !important; }
+  #foundry .satellite[src*="pin7"] { left: 6% !important; top: 78% !important; }
+  #foundry .satellite[src*="pin8"] { left: 86% !important; top: 76% !important; }
+  #foundry .satellite[src*="pin9"] { left: 30% !important; top: 77% !important; }
+  #foundry .satellite[src*="pin10"] { left: 57% !important; top: 78% !important; }
+  #foundry .satellite[src*="pin11"] { left: 40% !important; top: 7% !important; }
+  #foundry .satellite[src*="pin12"] { left: 72% !important; top: 30% !important; }
+
+  #foundry .satellite[src*="envelope"] {
+    left: -12% !important;
+    top: 58% !important;
+    max-width: 500px !important;
+  }
+
+  #foundry .satellite[src*="page1"] {
+    left: -3% !important;
+    top: 43% !important;
+    max-width: 160px !important;
+  }
+
+  #foundry .satellite[src*="page2"] {
+    left: 7% !important;
+    top: 43% !important;
+    max-width: 160px !important;
+  }
+
+  #foundry .satellite[src*="page3"] {
+    left: 16% !important;
+    top: 47% !important;
+    max-width: 160px !important;
   }
 
   .misc-index {
