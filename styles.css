@@ -2008,6 +2008,16 @@ video::-moz-media-controls-play-button {
   .project + .project { margin-top: 96px; }
   #forever-yours { padding-top: 0; }
 
+  .project {
+    min-height: auto;
+  }
+
+  .project-head {
+    width: min(100%, 340px);
+    margin: 18px auto 92px;
+    max-width: calc(100vw - 48px);
+  }
+
   .project-head, .project-title, .project-meta { overflow-wrap: break-word; word-break: break-word; max-width: 100%; }
   .project-title { font-size: clamp(28px, 9vw, 48px); }
   .project-meta { font-size: clamp(16px, 4vw, 22px); }
@@ -2027,7 +2037,7 @@ video::-moz-media-controls-play-button {
 
   .hero {
     position: relative;
-    width: min(760px, 90%);
+    width: min(84vw, 340px);
     margin: 30px auto;
     pointer-events: none;
   }
@@ -2044,15 +2054,68 @@ video::-moz-media-controls-play-button {
     position: absolute;
     left: var(--x, 50%);
     top: var(--y, 50%);
-    max-width: min(48vw, 180px) !important;
     transform: rotate(var(--r, 0deg)) !important;
     pointer-events: none;
   }
 
   .satellite-motion {
     position: absolute;
-    max-width: min(48vw, 180px) !important;
     pointer-events: none;
+  }
+
+  #forever-yours .hero {
+    width: min(82vw, 330px);
+  }
+
+  #forever-yours .satellite[src*="drag2"],
+  #forever-yours .satellite[src*="drag6"] {
+    max-width: min(18vw, 72px) !important;
+  }
+
+  #forever-yours .satellite[src*="drag3"],
+  #forever-yours .satellite[src*="drag5"] {
+    max-width: min(34vw, 132px) !important;
+  }
+
+  #forever-yours .satellite[src*="fyl(drag).webp"] {
+    max-width: min(30vw, 118px) !important;
+  }
+
+  #forever-yours .satellite-motion {
+    max-width: min(28vw, 110px) !important;
+  }
+
+  #come-home .hero {
+    width: min(86vw, 350px);
+  }
+
+  #come-home .satellite {
+    max-width: min(68vw, 270px) !important;
+  }
+
+  #scratched .hero {
+    width: min(84vw, 340px);
+  }
+
+  #scratched .satellite[src*="drag).webp"],
+  #scratched .satellite[src*="drag2"] {
+    max-width: min(18vw, 72px) !important;
+  }
+
+  #scratched .satellite[src*="drag3"] {
+    max-width: min(23vw, 90px) !important;
+  }
+
+  #foundry .satellite[src*="pin"] {
+    max-width: min(8vw, 30px) !important;
+  }
+
+  #foundry .satellite[src*="envelope"] {
+    max-width: min(54vw, 210px) !important;
+  }
+
+  #foundry .satellite[src*="page"] {
+    max-width: min(17vw, 68px) !important;
   }
 
   .stage > img:not(.satellite) {
