@@ -4,10 +4,7 @@
    ========================================================= */
 
 (() => {
-  // skip on touch devices — satellites become a scroll carousel on mobile
   const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-  if (isCoarse) return;
-
   const draggableItems = document.querySelectorAll('.satellite');
 
   draggableItems.forEach((el) => {
@@ -24,6 +21,9 @@
     if (initialX || initialY) {
       el.style.transform = `translate3d(${initialX}px, ${initialY}px, 0) ${baseTransform} scale(1)`;
     }
+
+    // Touch devices keep the saved desktop arrangement, but do not drag.
+    if (isCoarse) return;
 
     const onPointerDown = (e) => {
       if (e.button !== undefined && e.button !== 0) return; // left click only
