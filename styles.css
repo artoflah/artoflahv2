@@ -1834,11 +1834,11 @@ video::-moz-media-controls-play-button {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0;
-    margin: 0 0 12px 38px;
+    gap: 5px;
+    margin: 0 0 18px 38px;
     color: var(--fg);
     font-size: 14px;
-    line-height: 1.03;
+    line-height: 1.12;
     text-transform: uppercase;
   }
 
@@ -1904,13 +1904,19 @@ video::-moz-media-controls-play-button {
   .home-vault-link {
     width: max-content;
     max-width: calc(100vw - 36px);
-    font-size: 12px;
-    text-align: right;
+    font-size: 14px;
+    text-align: center;
     white-space: nowrap;
   }
 
   .home-fixed-bottom-nav {
-    display: none;
+    position: static;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 8px 0 56px;
+    padding: 0 18px;
+    pointer-events: auto;
   }
 
   .home-scroll-cue {
