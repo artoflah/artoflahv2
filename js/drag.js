@@ -4,8 +4,8 @@
    ========================================================= */
 
 (() => {
-  const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-  if (isCoarse) return;
+  const isMobileLayout = window.matchMedia('(max-width: 767px), (hover: none), (pointer: coarse)').matches;
+  if (isMobileLayout) return;
 
   const draggableItems = document.querySelectorAll('.satellite');
 

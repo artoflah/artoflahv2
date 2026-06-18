@@ -4,9 +4,9 @@
    ========================================================= */
 
 (() => {
-  // skip on touch devices — satellites become a scroll carousel on mobile
-  const isCoarse = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-  if (isCoarse) return;
+  // skip anywhere the mobile layout is active so saved desktop offsets do not distort it
+  const isMobileLayout = window.matchMedia('(max-width: 767px), (hover: none), (pointer: coarse)').matches;
+  if (isMobileLayout) return;
 
   const satellites = document.querySelectorAll('.satellite');
 

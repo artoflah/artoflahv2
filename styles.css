@@ -2089,16 +2089,16 @@ video::-moz-media-controls-play-button {
   .compact-web-project .stage {
     width: 1100px;
     max-width: none;
-    height: 300px;
-    min-height: 300px;
-    margin-bottom: calc(60vw - 300px);
+    height: 700px;
+    min-height: 700px;
+    margin-bottom: calc(78vw - 700px);
     transform: scale(calc((100vw - 24px) / 1100px));
     transform-origin: top center;
   }
 
   .compact-web-project .laptop-mockup {
-    width: 500px;
-    flex-basis: 420px;
+    width: 960px;
+    flex-basis: 960px;
     padding: 12px 12px 10px;
   }
 
@@ -2106,41 +2106,41 @@ video::-moz-media-controls-play-button {
     max-width: 80px !important;
   }
 
-  #foundry .satellite[src*="pin1"] { left: 5% !important; top: 4% !important; }
-  #foundry .satellite[src*="pin2"] { left: 82% !important; top: 1% !important; }
-  #foundry .satellite[src*="pin3"] { left: 4% !important; top: 89% !important; }
-  #foundry .satellite[src*="pin4"] { left: 84% !important; top: 110% !important; }
-  #foundry .satellite[src*="pin5"] { left: 22% !important; top: 1% !important; }
-  #foundry .satellite[src*="pin6"] { left: 63% !important; top: 4% !important; }
-  #foundry .satellite[src*="pin7"] { left: 9% !important; top: 108% !important; }
-  #foundry .satellite[src*="pin8"] { left: 96% !important; top: 96% !important; }
-  #foundry .satellite[src*="pin9"] { left: 39% !important; top: 77% !important; }
-  #foundry .satellite[src*="pin10"] { left: 57% !important; top: 165% !important; }
-  #foundry .satellite[src*="pin11"] { left: 40% !important; top: 7% !important; }
-  #foundry .satellite[src*="pin12"] { left: 72% !important; top: 30% !important; }
+  #foundry .satellite[src*="pin1"] { left: 4% !important; top: 6% !important; }
+  #foundry .satellite[src*="pin2"] { left: 81% !important; top: 3% !important; }
+  #foundry .satellite[src*="pin3"] { left: 8% !important; top: 48% !important; }
+  #foundry .satellite[src*="pin4"] { left: 78% !important; top: 50% !important; }
+  #foundry .satellite[src*="pin5"] { left: 21% !important; top: 2% !important; }
+  #foundry .satellite[src*="pin6"] { left: 63% !important; top: 6% !important; }
+  #foundry .satellite[src*="pin7"] { left: 2% !important; top: 78% !important; }
+  #foundry .satellite[src*="pin8"] { left: 88% !important; top: 76% !important; }
+  #foundry .satellite[src*="pin9"] { left: 31% !important; top: 75% !important; }
+  #foundry .satellite[src*="pin10"] { left: 56% !important; top: 76% !important; }
+  #foundry .satellite[src*="pin11"] { left: 41% !important; top: 8% !important; }
+  #foundry .satellite[src*="pin12"] { left: 70% !important; top: 31% !important; }
 
   #foundry .satellite[src*="envelope"] {
-    left: 2% !important;
-    top: 108% !important;
-    max-width: 560px !important;
+    left: -13% !important;
+    top: 50% !important;
+    max-width: 580px !important;
   }
 
   #foundry .satellite[src*="page1"] {
-    left: 9% !important;
-    top: 56% !important;
-    max-width: 190px !important;
+    left: -5% !important;
+    top: 29% !important;
+    max-width: 180px !important;
   }
 
   #foundry .satellite[src*="page2"] {
-    left: 18% !important;
-    top: 55% !important;
-    max-width: 190px !important;
+    left: 5% !important;
+    top: 30% !important;
+    max-width: 180px !important;
   }
 
   #foundry .satellite[src*="page3"] {
-    left: 26% !important;
-    top: 70% !important;
-    max-width: 190px !important;
+    left: 13% !important;
+    top: 35% !important;
+    max-width: 180px !important;
   }
 
   .misc-index {
