@@ -2015,13 +2015,10 @@ video::-moz-media-controls-play-button {
     max-width: calc(100vw - 48px);
   }
 
+  #watchtower .project-head,
   #foundry .project-head {
-    margin-top: 128px;
-    margin-bottom: 72px;
-  }
-
-  #watchtower .project-head {
-    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-bottom: 68px;
   }
 
   #watchtower + #foundry {
@@ -2110,45 +2107,8 @@ video::-moz-media-controls-play-button {
     padding: 12px 12px 10px;
   }
 
-  #foundry .satellite[src*="pin"] {
-    max-width: 80px !important;
-  }
-
-  #foundry .satellite[src$="pin1.webp"] { left: 5% !important; top: 4% !important; }
-  #foundry .satellite[src$="pin2.webp"] { left: 82% !important; top: 1% !important; }
-  #foundry .satellite[src$="pin3.webp"] { left: 4% !important; top: 89% !important; }
-  #foundry .satellite[src$="pin4.webp"] { left: 84% !important; top: 110% !important; }
-  #foundry .satellite[src$="pin5.webp"] { left: 22% !important; top: 1% !important; }
-  #foundry .satellite[src$="pin6.webp"] { left: 63% !important; top: 4% !important; }
-  #foundry .satellite[src$="pin7.webp"] { left: 9% !important; top: 108% !important; }
-  #foundry .satellite[src$="pin8.webp"] { left: 96% !important; top: 96% !important; }
-  #foundry .satellite[src$="pin9.webp"] { left: 39% !important; top: 77% !important; }
-  #foundry .satellite[src$="pin10.webp"] { left: 57% !important; top: 165% !important; }
-  #foundry .satellite[src$="pin11.webp"] { left: 40% !important; top: 7% !important; }
-  #foundry .satellite[src$="pin12.webp"] { left: 72% !important; top: 30% !important; }
-
-  #foundry .satellite[src$="envelope.webp"] {
-    left: 2% !important;
-    top: 108% !important;
-    max-width: 560px !important;
-  }
-
-  #foundry .satellite[src$="page1(foundry).webp"] {
-    left: 9% !important;
-    top: 56% !important;
-    max-width: 190px !important;
-  }
-
-  #foundry .satellite[src$="page2(foundry).webp"] {
-    left: 18% !important;
-    top: 55% !important;
-    max-width: 190px !important;
-  }
-
-  #foundry .satellite[src$="page3(foundry).webp"] {
-    left: 26% !important;
-    top: 70% !important;
-    max-width: 190px !important;
+  #foundry .satellite-carousel {
+    display: none;
   }
 
   .misc-index {
